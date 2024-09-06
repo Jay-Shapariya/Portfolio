@@ -11,7 +11,7 @@ const Footer = () => {
             <h3 className="text-white text-[1.7rem] font-semibold">Copyright © 2024. All rights are reserved</h3>
             <div className="flex items-center gap-8 justify-center mt-4">
             <a
-                  href="#linkedin"
+                  href="https://www.linkedin.com/in/jay-shapariya-885379250/"
                   className="text-white text-5xl transition-all duration-200 hover:text-[#147EFB]"
                 >
                   <svg
@@ -34,7 +34,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href="#Github"
+                  href="https://github.com/Jay-Shapariya"
                   className="text-white text-5xl transition-all duration-200 hover:text-[#147EFB]"
                 >
                   <svg

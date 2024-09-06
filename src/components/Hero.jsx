@@ -8,16 +8,16 @@ const Hero = () => {
           <div id="hero-main" className="flex flex-col-reverse lg:flex-row items-center gap-12 h-auto text-center lg:gap-40 justify-center relative">
             <div id="hero-text" className="flex flex-col max-w-[50rem] gap-2 relative">
               <h1 className="text-[#2D2E32] lg:text-8xl md:text-7xl sm:text-6xl text-6xl mb-8 mt-8 font-bold">
-                Front-End React Developer
+                Flutter App Developer
               </h1>
               <img />
               <p className="text-[#555555] text-2xl">
-                Hi, I'm Samyak Shah. A passionate Front-end React Developer
-                based in Belgrade, Serbia. 📍
+                Hi, I'm Jay Shapariya. A passionate Flutter App Developer
+                based in Ahmedabad, Gujarat 📍
               </p>
               <span className="flex justify-center gap-5 mr-10 my-10">
                 <a
-                  href="#linkedin"
+                  href="https://www.linkedin.com/in/jay-shapariya-885379250/"
                   className="text-[#2d2e32] text-5xl transition-all duration-200 hover:text-[#147EFB]"
                 >
                   <svg
@@ -40,7 +40,7 @@ const Hero = () => {
                   </svg>
                 </a>
                 <a
-                  href="#Github"
+                  href="https://github.com/Jay-Shapariya"
                   className="text-[#2d2e32] text-5xl transition-all duration-200 hover:text-[#147EFB]"
                 >
                   <svg
@@ -69,25 +69,31 @@ const Hero = () => {
             <ul className="flex gap-12 justify-center flex-wrap py-5">
             <li>
               <img
-                src="https://skillicons.dev/icons?i=react,next"
+                src="https://skillicons.dev/icons?i=flutter,firebase"
                 className="h-20"
               />
             </li>
             <li>
               <img
-                src="https://skillicons.dev/icons?i=mongodb,express,nodejs"
+                src="https://skillicons.dev/icons?i=figma,java"
                 className="h-20"
               />
             </li>
             <li>
               <img
-                src="https://skillicons.dev/icons?i=git,javascript"
+                src="https://skillicons.dev/icons?i=git,cpp"
                 className="h-20"
               />
             </li>
             <li>
               <img
-                src="https://skillicons.dev/icons?i=php,cpp"
+                src="https://skillicons.dev/icons?i=mysql,c"
+                className="h-20"
+              />
+            </li>
+            <li>
+              <img
+                src="https://skillicons.dev/icons?i=html,css"
                 className="h-20"
               />
             </li>

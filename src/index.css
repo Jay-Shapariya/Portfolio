@@ -26,9 +26,11 @@ p{
 }
 
 .hero-img{
-  background: url("/image/about-pic.png");
+  background: url("/image/jay.jpeg");
   background-size: cover;
-  background-position: 50%;
+  background-position: 50% 30%;
+  background-size: 200%;
+  background-repeat: no-repeat;
 
   animation: animate 5s ease-in-out infinite;
   transition: all 1s ease-in-out;

@@ -25,7 +25,7 @@ const Navbar = () => {
     >
       {/* Logo */}
       <h1 className="w-full text-3xl font-bold text-[#2D2E32] px-10 cursor-pointer">
-        Samyak Shah
+        Jay Shapariya
       </h1>
 
       {/* Desktop Navigation */}

@@ -26,21 +26,18 @@ const Project = () => {
                 <h1 className="text-lg">
                   <a
                     className="no-underline hover:underline text-[#2d2e32] text-2xl font-bold"
-                    href="#"
+                    href=""
                   >
-                    Project Title
+                    Flutter E-Commerse App
                   </a>
                 </h1>
                 <div className="flex gap-3 text-xl font-bold">
-                <h2 className="hover:underline cursor-pointer">React</h2>
-                <h2 className="hover:underline cursor-pointer">Next.js</h2>
+                <h2 className="hover:underline cursor-pointer">Flutter</h2>
+                <h2 className="hover:underline cursor-pointer">Firebase</h2>
                 </div>
               </header>
               <p className="text-[#767676] font-semibold text-center text-xl p-2">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum
-                maxime quis recusandae dolorem neque. Praesentium expedita
-                provident odio, laborum officiis repellat quidem harum,
-                laboriosam consequatur id molestiae ratione aspernatur neque!
+              This Flutter E-Commerce App is a basic implementation of an online shopping application. It allows users to browse products, add them to the cart, and make purchases using Firebase as the backend for authentication and data storage. The app uses the Getx library to create responsive and beautiful UI components and the Get library for state management, making it easy to manage the app's state.
               </p>
               <footer className="flex items-center justify-center gap-5 leading-none p-2 md:p-4">
                 <a
