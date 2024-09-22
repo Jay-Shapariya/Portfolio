@@ -19,7 +19,9 @@ const Project = () => {
               <img
                 alt="Placeholder"
                 className="block h-auto w-full"
-                src="https://picsum.photos/600/400/?random"
+                src ="/image/1.png"
+
+                // src="https://picsum.photos/600/400/?random"
               />
 
               <header className="flex items-center justify-between leading-tight p-2 md:p-4">
@@ -64,7 +66,7 @@ const Project = () => {
               <img
                 alt="Placeholder"
                 className="block h-auto w-full"
-                src="https://picsum.photos/600/400/?random"
+                src="/image/2.png"
               />
 
               <header className="flex items-center justify-between leading-tight p-2 md:p-4">
@@ -110,7 +112,7 @@ const Project = () => {
               <img
                 alt="Placeholder"
                 className="block h-auto w-full"
-                src="https://picsum.photos/600/400/?random"
+                src="/image/3.png"
               />
 
               <header className="flex items-center justify-between leading-tight p-2 md:p-4">
@@ -172,7 +174,7 @@ const Project = () => {
               <img
                 alt="Placeholder"
                 className="block h-auto w-full"
-                src="https://picsum.photos/600/400/?random"
+                src="/image/4.png"
               />
 
               <header className="flex items-center justify-between leading-tight p-2 md:p-4">
@@ -234,7 +236,7 @@ const Project = () => {
               <img
                 alt="Placeholder"
                 className="block h-auto w-full"
-                src="https://picsum.photos/600/400/?random"
+                src="/image/5.png"
               />
 
               <header className="flex items-center justify-between leading-tight p-2 md:p-4">
@@ -296,7 +298,7 @@ const Project = () => {
               <img
                 alt="Placeholder"
                 className="block h-auto w-full"
-                src="https://picsum.photos/600/400/?random"
+                src="/image/6.png"
               />
 
               <header className="flex items-center justify-between leading-tight p-2 md:p-4">
@@ -342,7 +344,7 @@ const Project = () => {
               <img
                 alt="Placeholder"
                 className="block h-auto w-full"
-                src="https://picsum.photos/600/400/?random"
+                src="/image/7.png"
               />
 
               <header className="flex items-center justify-between leading-tight p-2 md:p-4">
@@ -398,7 +400,9 @@ const Project = () => {
               <img
                 alt="Placeholder"
                 className="block h-auto w-full"
-                src="https://picsum.photos/600/400/?random"
+                src="/image/8.png"
+                
+                // style="width: auto; height: auto;"
               />
 
               <header className="flex items-center justify-between leading-tight p-2 md:p-4">
