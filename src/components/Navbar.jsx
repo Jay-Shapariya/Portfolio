@@ -1,17 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
-  // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
-  // Toggle function to handle the navbar's display
+  // Scroll Spy Logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 300; // Offset for better centering
+
+      const sections = navItems.map((item) => {
+        const element = document.getElementById(item.link.substring(1));
+        if (element) {
+          return {
+            id: item.link.substring(1),
+            offsetTop: element.offsetTop,
+            offsetHeight: element.offsetHeight,
+          };
+        }
+        return null;
+      }).filter(Boolean);
+
+      let currentSection = "home";
+      for (const section of sections) {
+        if (
+          section.offsetTop <= scrollPosition &&
+          (section.offsetTop + section.offsetHeight) > scrollPosition
+        ) {
+          currentSection = section.id;
+        }
+      }
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleNav = () => {
     setNav(!nav);
   };
 
-  // Array containing navigation items
   const navItems = [
     { id: 1, text: "Home", link: "#home" },
     { id: 2, text: "About", link: "#about" },
@@ -23,88 +54,97 @@ const Navbar = () => {
   return (
     <motion.div
       id="navBar"
-      className="bg-white flex justify-between items-center h-auto w-full mx-auto px-4 md:px-8 lg:px-20 lg:py-7 py-8 left-0 top-0 text-[1.5rem] md:text-[1.7rem] fixed shadow-md z-200"
+      className="navBar flex justify-between items-center h-auto w-full mx-auto px-4 md:px-8 lg:px-12 lg:py-5 py-6 left-0 top-0 text-[1.5rem] md:text-[1.7rem] fixed z-[200]"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* Logo */}
-      <motion.h1
-        className="w-full text-2xl md:text-3xl font-bold text-[#2D2E32] px-4 md:px-10 cursor-pointer"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-      >
+      <h1 className="w-full text-2xl md:text-3xl font-bold text-text-primary px-4 md:px-10 cursor-pointer tracking-tight">
         Jay Shapariya
-      </motion.h1>
+      </h1>
 
-      {/* Desktop Navigation */}
-      <ul className="hidden md:flex list-none">
-        {navItems.map((item, index) => (
-          <motion.li
-            key={item.id}
-            className="p-4 hover:text-[#147EFB] rounded-xl cursor-pointer duration-300 text-[#2D2E32] font-semibold"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <a href={item.link}>{item.text}</a>
-          </motion.li>
-        ))}
-      </ul>
-
-      {/* Mobile Navigation Icon */}
-      <motion.div
-        onClick={handleNav}
-        className="block md:hidden cursor-pointer"
-        aria-label="Toggle mobile menu"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
-      </motion.div>
-
-      {/* Mobile Navigation Menu */}
-      <AnimatePresence>
-        {nav && (
-          <motion.ul
-            className="fixed top-0 left-0 w-full h-full bg-gray-50 border-r border-r-gray-900 ease-in-out duration-500 md:hidden"
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            {/* Mobile Logo */}
-            <div className="w-[90%] font-bold flex justify-end pt-5">
-              <motion.div
-                onClick={handleNav}
-                className="block md:hidden cursor-pointer"
-                aria-label="Close mobile menu"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                {nav && <AiOutlineClose size={30} />}
-              </motion.div>
-            </div>
-
-            {/* Mobile Navigation Items */}
-            {navItems.map((item, index) => (
-              <motion.li
-                key={item.id}
-                className="p-4 text-center mt-16 md:mt-20 font-semibold text-3xl md:text-4xl rounded-xl hover:text-[#147EFB] text-[#2D2E32] duration-300 cursor-pointer border-gray-600"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, x: 10 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <a onClick={handleNav} href={item.link}>
+      {/* Desktop Navigation (Glass Segmented Control) */}
+      <div className="hidden md:flex items-center">
+        <ul className="flex gap-2 items-center glass-dark p-2 rounded-full border border-white/5 shadow-2xl">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.link.substring(1);
+            return (
+              <li key={item.id} className="relative z-10">
+                <a
+                  href={item.link}
+                  className={`block px-6 py-2 rounded-full text-base font-medium transition-colors duration-300 relative z-20 ${isActive ? "text-white" : "text-text-secondary hover:text-text-primary"
+                    }`}
+                  onClick={() => setActiveSection(item.link.substring(1))}
+                >
                   {item.text}
                 </a>
-              </motion.li>
-            ))}
-          </motion.ul>
+
+                {/* Active Glass Pill */}
+                {isActive && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 bg-white/10 rounded-full z-10 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                    style={{ backdropFilter: "blur(4px)" }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      {/* Mobile Navigation Icon */}
+      <div onClick={handleNav} className="block md:hidden cursor-pointer text-text-primary p-2">
+        {nav ? <AiOutlineClose size={28} /> : <AiOutlineMenu size={28} />}
+      </div>
+
+      {/* Mobile Navigation Menu (Side Drawer) */}
+      <AnimatePresence>
+        {nav && (
+          <motion.div
+            className="fixed top-0 right-0 w-[80%] md:w-[60%] h-full bg-[#0B0D12] border-l border-white/10 z-[199] flex flex-col justify-center items-center shadow-2xl"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            {/* Backdrop Blur Layer */}
+            <div className="absolute inset-0 backdrop-blur-3xl bg-black/50 z-[-1]" />
+
+            <ul className="flex flex-col gap-8 text-center">
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
+                  <a
+                    href={item.link}
+                    onClick={handleNav}
+                    className="text-3xl font-semibold text-text-primary hover:text-ios-blue transition-colors"
+                  >
+                    {item.text}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Overlay Backdrop */}
+      <AnimatePresence>
+        {nav && (
+          <motion.div
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[198] md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={handleNav}
+          />
         )}
       </AnimatePresence>
     </motion.div>

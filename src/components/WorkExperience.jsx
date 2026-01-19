@@ -62,7 +62,7 @@ const WorkExperience = () => {
   ];
 
   return (
-    <div id="experience" className="bg-[#F9F9F9] py-24 h-auto">
+    <div id="experience" className="bg-transparent py-24 h-auto">
       <div className="container my-12 mx-auto px-4 md:px-8 lg:px-12">
         <motion.div
           className="text-center"
@@ -71,10 +71,10 @@ const WorkExperience = () => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h3 className="text-[#147efb] text-[1.5rem] md:text-[1.75rem] font-bold mb-4 uppercase">
+          <h3 className="text-ios-blue text-[1.5rem] md:text-[1.75rem] font-bold mb-4 uppercase">
             Work Experience
           </h3>
-          <h4 className="text-[#2d2e32] text-2xl md:text-3xl font-semibold mb-8">
+          <h4 className="text-text-primary text-2xl md:text-3xl font-semibold mb-8">
             My Professional Journey
           </h4>
         </motion.div>
@@ -87,7 +87,7 @@ const WorkExperience = () => {
             {experiences.map((experience, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-lg p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                className="glass-pearl p-6 md:p-8 transition-all duration-300 liquid-hover"
                 ref={ref}
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -100,17 +100,17 @@ const WorkExperience = () => {
               >
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                   <div>
-                    <h5 className="text-[#2d2e32] text-xl md:text-2xl font-bold mb-2">
+                    <h5 className="text-text-primary text-xl md:text-2xl font-bold mb-2">
                       {experience.title}
                     </h5>
-                    <p className="text-[#147efb] text-lg md:text-xl font-semibold mb-2">
+                    <p className="text-ios-blue text-lg md:text-xl font-semibold mb-2">
                       {experience.company}
                     </p>
                   </div>
                   <div className="flex flex-col lg:items-end mt-4 lg:mt-0">
                     <div className="flex items-center mb-2">
                       <svg
-                        className="w-4 md:w-5 h-4 md:h-5 text-[#767676] mr-2"
+                        className="w-4 md:w-5 h-4 md:h-5 text-text-secondary mr-2"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -120,13 +120,13 @@ const WorkExperience = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-[#767676] text-base md:text-lg">
+                      <span className="text-text-secondary text-base md:text-lg">
                         {experience.dates}
                       </span>
                     </div>
                     <div className="flex items-center">
                       <svg
-                        className="w-4 md:w-5 h-4 md:h-5 text-[#767676] mr-2"
+                        className="w-4 md:w-5 h-4 md:h-5 text-text-secondary mr-2"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -136,7 +136,7 @@ const WorkExperience = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-[#767676] text-base md:text-lg">
+                      <span className="text-text-secondary text-base md:text-lg">
                         {experience.location}
                       </span>
                     </div>
@@ -159,8 +159,8 @@ const WorkExperience = () => {
                           ease: "easeOut",
                         }}
                       >
-                        <span className="text-[#000000] mr-3 mt-2">-</span>
-                        <span className="text-[#767676] text-base md:text-lg leading-relaxed">
+                        <span className="text-text-primary mr-3 mt-2">-</span>
+                        <span className="text-text-secondary text-base md:text-lg leading-relaxed">
                           {responsibility}
                         </span>
                       </motion.li>
@@ -172,7 +172,7 @@ const WorkExperience = () => {
                   {experience.skills.map((skill, idx) => (
                     <motion.span
                       key={idx}
-                      className="hover:underline cursor-pointer bg-gray-100 px-2 py-1 rounded"
+                      className="hover:underline cursor-pointer bg-glass-300 px-2 py-1 rounded"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={
                         inView

@@ -9,7 +9,7 @@ const Footer = () => {
   });
 
   return (
-    <div className="bg-[#2D2E32] py-16 md:py-20 px-0 w-full">
+    <div className="bg-[#2D2E32]/80 backdrop-blur-xl border-t border-white/10 py-16 md:py-20 px-0 w-full">
       <div
         id="container"
         className="mx-auto my-0 max-w-[120rem] px-4 md:px-8 lg:px-16 py-0"
@@ -27,7 +27,7 @@ const Footer = () => {
           <div className="flex items-center gap-6 md:gap-8 justify-center mt-4">
             <motion.a
               href="https://www.linkedin.com/in/jay-shapariya-885379250/"
-              className="text-white text-4xl md:text-5xl transition-all duration-200 hover:text-[#147EFB]"
+              className="text-white text-4xl md:text-5xl transition-all duration-200 hover:text-ios-blue"
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -52,7 +52,7 @@ const Footer = () => {
             </motion.a>
             <motion.a
               href="https://github.com/Jay-Shapariya"
-              className="text-white text-4xl md:text-5xl transition-all duration-200 hover:text-[#147EFB]"
+              className="text-white text-4xl md:text-5xl transition-all duration-200 hover:text-ios-blue"
               whileHover={{ scale: 1.1, rotate: -5 }}
               whileTap={{ scale: 0.95 }}
             >

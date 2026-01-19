@@ -11,13 +11,13 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="bg-[#F9F9F9] lg:py-44 md:py-32 sm:py-32 py-32 px-0"
+      className="bg-transparent lg:py-44 md:py-32 sm:py-32 py-32 px-0"
     >
       <div
         id="container"
         className="mx-auto my-0 max-w-[120rem] lg:px-16 md:px-8 sm:px-8 px-4 py-0"
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col glass-pearl p-12">
           <motion.div
             className="text-center lg:text-start md:text-start sm:text-center"
             ref={ref}
@@ -25,10 +25,10 @@ const Contact = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="uppercase text-[#147efb] text-[1.5rem] md:text-[1.7rem] font-extrabold mb-4">
+            <p className="uppercase text-ios-blue text-[1.5rem] md:text-[1.7rem] font-extrabold mb-4">
               Contact
             </p>
-            <h3 className="text-[#2d2e32] text-[2rem] md:text-[2.5rem] font-bold">
+            <h3 className="text-text-primary text-[2rem] md:text-[2.5rem] font-bold">
               Ready to bring your mobile app ideas to life? Let's discuss your
               project!
             </h3>
@@ -45,7 +45,7 @@ const Contact = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.span
-                className="flex items-center text-[#147efb] h-16 md:h-20 justify-center w-16 md:w-20"
+                className="flex items-center text-ios-blue h-16 md:h-20 justify-center w-16 md:w-20"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
               >
@@ -69,10 +69,10 @@ const Contact = () => {
                 </svg>
               </motion.span>
               <div className="flex flex-col gap-2">
-                <h3 className="text-[#2d2e32] text-[1.5rem] md:text-[1.7rem] font-bold">
+                <h3 className="text-text-primary text-[1.5rem] md:text-[1.7rem] font-bold">
                   Location
                 </h3>
-                <p className="text-[#767676] cursor-pointer text-[1.5rem] md:text-[1.7rem] font-medium hover:text-[#147efb] transition-colors duration-300">
+                <p className="text-text-secondary cursor-pointer text-[1.5rem] md:text-[1.7rem] font-medium hover:text-ios-blue transition-colors duration-300">
                   Ahmedabad, Gujarat
                 </p>
               </div>
@@ -83,7 +83,7 @@ const Contact = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.span
-                className="flex items-center text-[#147efb] h-16 md:h-20 justify-center w-16 md:w-20"
+                className="flex items-center text-ios-blue h-16 md:h-20 justify-center w-16 md:w-20"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
               >
@@ -104,12 +104,12 @@ const Contact = () => {
                 </svg>
               </motion.span>
               <div className="flex flex-col gap-2">
-                <h3 className="text-[#2d2e32] text-[1.5rem] md:text-[1.7rem] font-bold">
+                <h3 className="text-text-primary text-[1.5rem] md:text-[1.7rem] font-bold">
                   Mail
                 </h3>
                 <motion.a
                   href="mailto:shapariyajay@gmail.com"
-                  className="text-[#767676] cursor-pointer text-[1.5rem] md:text-[1.7rem] font-medium hover:text-[#147efb] transition-colors duration-300"
+                  className="text-text-secondary cursor-pointer text-[1.5rem] md:text-[1.7rem] font-medium hover:text-ios-blue transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -123,7 +123,7 @@ const Contact = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.span
-                className="flex items-center text-[#147efb] h-16 md:h-20 justify-center w-16 md:w-20"
+                className="flex items-center text-ios-blue h-16 md:h-20 justify-center w-16 md:w-20"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
               >
@@ -153,11 +153,11 @@ const Contact = () => {
                 </svg>
               </motion.span>
               <div className="flex flex-col gap-2">
-                <h3 className="text-[#2d2e32] text-[1.5rem] md:text-[1.7rem] font-bold">
+                <h3 className="text-text-primary text-[1.5rem] md:text-[1.7rem] font-bold">
                   Phone No.
                 </h3>
                 <motion.a
-                  className="text-[#767676] cursor-pointer text-[1.5rem] md:text-[1.7rem] font-medium hover:text-[#147efb] transition-colors duration-300"
+                  className="text-text-secondary cursor-pointer text-[1.5rem] md:text-[1.7rem] font-medium hover:text-ios-blue transition-colors duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
