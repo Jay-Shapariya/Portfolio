@@ -1,12 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 const WorkExperience = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
 
   const experiences = [
     {
@@ -62,55 +57,61 @@ const WorkExperience = () => {
   ];
 
   return (
-    <div id="experience" className="bg-transparent py-24 h-auto">
-      <div className="container my-12 mx-auto px-4 md:px-8 lg:px-12">
+    <div id="experience" className="bg-transparent py-24 h-auto relative">
+      {/* Background ambient glow/noise could go here if needed globally */}
+      <div className="container my-12 mx-auto px-4 md:px-8 lg:px-12 relative z-10">
         <motion.div
-          className="text-center"
-          ref={ref}
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h3 className="text-ios-blue text-[1.5rem] md:text-[1.75rem] font-bold mb-4 uppercase">
+          <h3 className="text-ios-blue text-[1.25rem] md:text-[1.5rem] font-bold mb-3 uppercase tracking-wider">
             Work Experience
           </h3>
-          <h4 className="text-text-primary text-2xl md:text-3xl font-semibold mb-8">
+          <h4 className="text-text-primary text-3xl md:text-4xl font-semibold">
             My Professional Journey
           </h4>
         </motion.div>
 
         <div
           id="container"
-          className="mx-auto my-0 max-w-[120rem] px-4 md:px-8 lg:px-16 py-0"
+          className="mx-auto my-0 max-w-[120rem] px-0 md:px-8 py-0"
         >
-          <div className="grid lg:grid-cols-1 md:grid-cols-1 grid-cols-1 gap-8">
+          <div className="grid lg:grid-cols-1 md:grid-cols-1 grid-cols-1 gap-6">
             {experiences.map((experience, index) => (
               <motion.div
                 key={index}
-                className="glass-pearl p-6 md:p-8 transition-all duration-300 liquid-hover"
-                ref={ref}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                className="glass-pearl p-6 md:p-8 relative overflow-hidden group cursor-default"
+                initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  duration: 0.8,
+                  duration: 0.5,
                   delay: index * 0.1,
-                  ease: "easeOut",
+                  type: "spring",
+                  stiffness: 50,
+                  damping: 20
                 }}
-                whileHover={{ y: -5 }}
+                whileHover={{ scale: 1.01, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
               >
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-                  <div>
-                    <h5 className="text-text-primary text-xl md:text-2xl font-bold mb-2">
+                {/* Selection Highlight Bar (Mobile List Style) */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-ios-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                  <div className="mb-4 lg:mb-0">
+                    <h5 className="text-text-primary text-xl md:text-2xl font-bold mb-1">
                       {experience.title}
                     </h5>
-                    <p className="text-ios-blue text-lg md:text-xl font-semibold mb-2">
+                    <p className="text-ios-blue text-lg md:text-xl font-medium tracking-wide">
                       {experience.company}
                     </p>
                   </div>
-                  <div className="flex flex-col lg:items-end mt-4 lg:mt-0">
-                    <div className="flex items-center mb-2">
+                  <div className="flex flex-col lg:items-end gap-2">
+                    <div className="flex items-center bg-glass-bg px-3 py-1 rounded-full border border-glass-border">
                       <svg
-                        className="w-4 md:w-5 h-4 md:h-5 text-text-secondary mr-2"
+                        className="w-4 h-4 text-text-secondary mr-2"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -120,13 +121,13 @@ const WorkExperience = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-text-secondary text-base md:text-lg">
+                      <span className="text-text-secondary text-sm md:text-base font-medium">
                         {experience.dates}
                       </span>
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex items-center bg-[var(--glass-bg)] px-3 py-1 rounded-full border border-[var(--glass-border)]">
                       <svg
-                        className="w-4 md:w-5 h-4 md:h-5 text-text-secondary mr-2"
+                        className="w-4 h-4 text-text-secondary mr-2"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -136,31 +137,29 @@ const WorkExperience = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-text-secondary text-base md:text-lg">
+                      <span className="text-text-secondary text-sm md:text-base font-medium">
                         {experience.location}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-6 pl-2 border-l-2 border-[var(--glass-border)]">
                   <ul className="space-y-3">
                     {experience.responsibilities.map((responsibility, idx) => (
                       <motion.li
                         key={idx}
                         className="flex items-start"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={
-                          inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
-                        }
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
                         transition={{
-                          duration: 0.6,
-                          delay: index * 0.1 + idx * 0.1,
-                          ease: "easeOut",
+                          duration: 0.4,
+                          delay: 0.2 + idx * 0.1,
                         }}
                       >
-                        <span className="text-text-primary mr-3 mt-2">-</span>
-                        <span className="text-text-secondary text-base md:text-lg leading-relaxed">
+                        <span className="text-ios-blue mr-3 mt-1.5 text-xs">●</span>
+                        <span className="text-text-secondary text-base md:text-lg leading-relaxed font-light">
                           {responsibility}
                         </span>
                       </motion.li>
@@ -168,21 +167,17 @@ const WorkExperience = () => {
                   </ul>
                 </div>
 
-                <div className="flex flex-wrap gap-2 md:gap-3">
+                <div className="flex flex-wrap gap-2">
                   {experience.skills.map((skill, idx) => (
                     <motion.span
                       key={idx}
-                      className="hover:underline cursor-pointer bg-glass-300 px-2 py-1 rounded"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={
-                        inView
-                          ? { opacity: 1, scale: 1 }
-                          : { opacity: 0, scale: 0.8 }
-                      }
+                      className="cursor-default bg-[var(--glass-highlight)] px-3 py-1.5 rounded-lg text-sm font-medium border border-[var(--glass-border)] text-text-muted hover:text-white hover:border-ios-blue transition-colors duration-300"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
                       transition={{
-                        duration: 0.5,
-                        delay: index * 0.1 + idx * 0.05,
-                        ease: "easeOut",
+                        duration: 0.3,
+                        delay: 0.3 + idx * 0.05,
                       }}
                       whileHover={{ scale: 1.05 }}
                     >
