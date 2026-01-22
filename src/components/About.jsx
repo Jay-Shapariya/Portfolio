@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { springConfigs } from "../utils/motionVariants";
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -89,22 +90,42 @@ const About = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                {/* Liquid Glass Action Pill */}
+                {/* Enhanced Liquid Glass Action Pill */}
                 <motion.button
                   type="button"
                   className="group relative px-8 py-4 rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] shadow-lg backdrop-blur-md overflow-hidden"
                   onClick={() => window.open("/CV/Jay shapariya Resume.pdf")}
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(255, 255, 255, 0.12)",
+                    boxShadow: "0 0 30px rgba(0, 122, 255, 0.3), 0 8px 32px rgba(0, 0, 0, 0.3)"
+                  }}
+                  whileTap={{ scale: 0.92 }}
+                  transition={springConfigs.bouncy}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-ios-blue to-cyan-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                  <div className="flex items-center gap-3">
+                  {/* Animated gradient overlay */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-ios-blue/0 via-ios-blue/10 to-ios-blue/0 opacity-0 group-hover:opacity-100"
+                    initial={{ x: "-100%" }}
+                    animate={{ x: "200%" }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                  ></motion.div>
+
+                  <div className="flex items-center gap-3 relative z-10">
                     <span className="text-text-primary text-xl font-medium tracking-wide">Download CV</span>
-                    {/* Micro-dot pulse indicator */}
-                    <div className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+                    {/* Rotating gradient ring instead of pulsing dot */}
+                    <div className="relative flex h-6 w-6">
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                          background: "conic-gradient(from 0deg, #00d4ff, #0ea5e9, #3b82f6, #00d4ff)"
+                        }}
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                      >
+                        <div className="absolute inset-[2px] rounded-full bg-[var(--deep-graphite)]"></div>
+                      </motion.div>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400 m-auto"></span>
                     </div>
                   </div>
                 </motion.button>

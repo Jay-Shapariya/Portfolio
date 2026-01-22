@@ -84,9 +84,14 @@ const Navbar = () => {
                 {isActive && (
                   <motion.div
                     layoutId="active-pill"
-                    className="absolute inset-0 bg-white/10 rounded-full z-10 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-                    style={{ backdropFilter: "blur(4px)" }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className="absolute inset-0 rounded-full z-10 border border-white/20"
+                    style={{
+                      backdropFilter: "blur(12px)",
+                      WebkitBackdropFilter: "blur(12px)",
+                      background: "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.08))",
+                      boxShadow: "0 0 20px rgba(0,122,255,0.2), 0 4px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3)"
+                    }}
+                    transition={{ type: "spring", stiffness: 260, damping: 25, mass: 0.8 }}
                   />
                 )}
               </li>

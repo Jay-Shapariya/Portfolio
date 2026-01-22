@@ -8,16 +8,22 @@
   --deep-graphite: #12151C;
   --carbon-black: #0F1117;
 
-  /* Unified Glass Material System */
-  --glass-bg: rgba(255, 255, 255, 0.06);
-  --glass-bg-hover: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  /* Thinner, subtler border */
-  --glass-highlight: rgba(255, 255, 255, 0.15);
-  /* Top inner edge light */
+  /* Enhanced Glass Material System */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-hover: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-highlight: rgba(255, 255, 255, 0.2);
+  /* Top inner edge light - stronger */
+  --glass-inner-glow: rgba(124, 58, 237, 0.1);
+  /* Subtle purple glow from aurora */
   --glass-blur: 40px;
   /* Deep iOS-like blur */
+  --glass-blur-strong: 60px;
+  /* For prominent elements */
+  --glass-blur-subtle: 20px;
+  /* For minimal elements */
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --glass-shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.5);
 
   /* iOS Blue Accent */
   --ios-blue: #007AFF;
@@ -51,8 +57,13 @@ html {
 }
 
 html {
-  background-color: var(--space-black);
-  background-image: radial-gradient(circle at 50% 0%, var(--deep-graphite) 0%, var(--space-black) 60%);
+  background-color: #0a0514;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 80% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 120% 100% at 30% 60%, rgba(14, 165, 233, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 150% 120% at 70% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, #0f0a1f 0%, #0a0514 100%);
   background-attachment: fixed;
   font-family: Poppins, sans-serif;
   font-size: 62.5%;
@@ -61,6 +72,7 @@ html {
   position: relative;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  animation: auroraShift 90s ease-in-out infinite;
   /* Crisp text */
 }
 
@@ -94,23 +106,27 @@ body {
   box-shadow:
     var(--glass-shadow),
     0 4px 16px var(--shadow-ambient),
-    inset 0 1px 0 0 var(--glass-highlight);
+    inset 0 1px 0 0 var(--glass-highlight),
+    inset 0 0 60px var(--glass-inner-glow);
   border-radius: 24px;
   /* Default App Card Radius */
 }
 
 .liquid-hover {
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Smooth mobile ease */
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Apple-like spring ease */
 }
 
 .liquid-hover:hover {
   transform: scale(1.02);
   background: var(--glass-bg-hover);
+  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
   box-shadow:
-    0 20px 40px var(--shadow-primary),
+    var(--glass-shadow-strong),
     0 0 0 1px var(--ios-blue-glow),
-    inset 0 1px 0 0 var(--glass-highlight);
+    inset 0 1px 0 0 var(--glass-highlight),
+    inset 0 0 80px var(--glass-inner-glow);
 }
 
 .navBar {
@@ -171,6 +187,54 @@ article {
 
   100% {
     border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+}
+
+/* Aurora Background Drift Animation */
+@keyframes auroraShift {
+
+  0%,
+  100% {
+    background-position: 0% 0%, 100% 50%, 0% 60%, 100% 80%, 50% 50%;
+  }
+
+  25% {
+    background-position: 20% 10%, 80% 40%, 30% 70%, 70% 90%, 50% 50%;
+  }
+
+  50% {
+    background-position: 30% 20%, 60% 30%, 50% 80%, 50% 100%, 50% 50%;
+  }
+
+  75% {
+    background-position: 10% 30%, 90% 60%, 20% 50%, 80% 70%, 50% 50%;
+  }
+}
+
+/* Utility Classes */
+.mobile-card {
+  border-radius: 28px;
+  padding: 1.5rem;
+}
+
+.press-feedback:active {
+  transform: scale(0.96);
+  transition: transform 0.1s ease-out;
+}
+
+.breathing-idle {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.005);
   }
 }
 

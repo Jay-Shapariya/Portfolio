@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { springConfigs } from "../utils/motionVariants";
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -161,7 +162,7 @@ const Contact = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  7043624875
+                  +917043624875
                 </motion.a>
               </div>
             </motion.div>

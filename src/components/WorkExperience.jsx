@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { springConfigs, viewportOptions } from "../utils/motionVariants";
 
 const WorkExperience = () => {
 
@@ -64,7 +65,7 @@ const WorkExperience = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-150px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h3 className="text-ios-blue text-[1.25rem] md:text-[1.5rem] font-bold mb-3 uppercase tracking-wider">
@@ -86,13 +87,10 @@ const WorkExperience = () => {
                 className="glass-pearl p-6 md:p-8 relative overflow-hidden group cursor-default"
                 initial={{ opacity: 0, y: 40, scale: 0.98 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: "-150px" }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 50,
-                  damping: 20
+                  ...springConfigs.gentle,
+                  delay: index * 0.15
                 }}
                 whileHover={{ scale: 1.01, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
               >
@@ -108,10 +106,11 @@ const WorkExperience = () => {
                       {experience.company}
                     </p>
                   </div>
-                  <div className="flex flex-col lg:items-end gap-2">
-                    <div className="flex items-center bg-glass-bg px-3 py-1 rounded-full border border-glass-border">
+                  <div className="flex flex-col lg:items-end gap-3">
+                    {/* Date Badge - Futuristic Design */}
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-ios-blue/10 to-cyan-500/10 px-4 py-2 rounded-xl border border-ios-blue/30">
                       <svg
-                        className="w-4 h-4 text-text-secondary mr-2"
+                        className="w-4 h-4 text-ios-blue"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -121,13 +120,14 @@ const WorkExperience = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-text-secondary text-sm md:text-base font-medium">
+                      <span className="text-text-primary text-sm md:text-base font-bold">
                         {experience.dates}
                       </span>
                     </div>
-                    <div className="flex items-center bg-[var(--glass-bg)] px-3 py-1 rounded-full border border-[var(--glass-border)]">
+                    {/* Location Badge - Futuristic Design */}
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-violet-500/10 px-4 py-2 rounded-xl border border-purple-500/30">
                       <svg
-                        className="w-4 h-4 text-text-secondary mr-2"
+                        className="w-4 h-4 text-purple-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -137,7 +137,7 @@ const WorkExperience = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-text-secondary text-sm md:text-base font-medium">
+                      <span className="text-text-primary text-sm md:text-base font-bold">
                         {experience.location}
                       </span>
                     </div>
@@ -171,7 +171,7 @@ const WorkExperience = () => {
                   {experience.skills.map((skill, idx) => (
                     <motion.span
                       key={idx}
-                      className="cursor-default bg-[var(--glass-highlight)] px-3 py-1.5 rounded-lg text-sm font-medium border border-[var(--glass-border)] text-text-muted hover:text-white hover:border-ios-blue transition-colors duration-300"
+                      className="cursor-default bg-white/10 px-3 py-1.5 rounded-lg text-sm font-semibold border border-white/20 text-text-primary hover:text-ios-blue hover:border-ios-blue/50 transition-all duration-300"
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
@@ -179,7 +179,7 @@ const WorkExperience = () => {
                         duration: 0.3,
                         delay: 0.3 + idx * 0.05,
                       }}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
                     >
                       {skill}
                     </motion.span>

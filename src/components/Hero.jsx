@@ -1,14 +1,16 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { motionVariants, springConfigs } from "../utils/motionVariants";
 
 const Hero = () => {
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
 
-  // Parallax effects
-  const textY = useTransform(scrollY, [0, 500], [0, 100]);
-  const imageY = useTransform(scrollY, [0, 500], [0, -50]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  // Parallax effects - reduced intensity for smoothness
+  const textY = useTransform(scrollY, [0, 600], [0, 80]);
+  const imageY = useTransform(scrollY, [0, 600], [0, -40]);
+  const imageRotate = useTransform(scrollY, [0, 600], [0, 2]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   // Motion Variants
   const containerVariants = {
@@ -28,7 +30,7 @@ const Hero = () => {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { type: "spring", stiffness: 100, damping: 20 }
+      transition: springConfigs.smooth
     }
   };
 
@@ -54,9 +56,15 @@ const Hero = () => {
             <motion.div
               className="glass-dark p-8 md:p-12 rounded-[32px] border border-white/5 relative overflow-hidden w-full"
               variants={itemVariants}
+              animate={{ scale: [1, 1.005, 1] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             >
-              {/* Decorative Blur blob inside card */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-ios-blue/20 rounded-full blur-[80px]" />
+              {/* Decorative Blur blob inside card with pulse */}
+              <motion.div
+                className="absolute -top-20 -right-20 w-64 h-64 bg-ios-blue/20 rounded-full blur-[100px]"
+                animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              />
 
               <motion.h1
                 className="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary mb-6 leading-tight tracking-tight relative z-10"
@@ -147,29 +155,41 @@ const Hero = () => {
           <motion.div
             className="w-full lg:w-1/2 flex justify-center lg:justify-end relative"
             variants={itemVariants}
-            style={{ y: imageY }}
+            style={{ y: imageY, rotate: imageRotate }}
           >
             <div className="relative w-[160px] h-[160px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px]">
-              {/* Background Glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-ios-blue to-purple-500 rounded-full blur-[80px] opacity-40 animate-pulse" />
+              {/* Background Glow - enhanced */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-tr from-violet-500 via-purple-500 to-pink-500 rounded-full blur-[100px] opacity-30"
+                animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              />
 
               {/* Profile Image Container */}
-              <div className="hero-img w-full h-full relative z-10 glass-border" />
+              <div className="hero-img w-full h-full relative z-10 glass-border" style={{ animationDuration: "12s" }} />
 
-              {/* Floating Artifacts (Parallax) */}
+              {/* Floating Artifacts (Parallax) - slower, gentler */}
               <motion.div
                 className="absolute -top-10 -right-10 glass-pearl p-4 rounded-2xl z-20"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                animate={{
+                  y: [0, -8, 0],
+                  rotate: [0, 5, 0],
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
               >
-                <img src="https://skillicons.dev/icons?i=flutter" className="w-10 h-10" />
+                <img src="https://skillicons.dev/icons?i=flutter" className="w-10 h-10" alt="Flutter" />
               </motion.div>
               <motion.div
                 className="absolute bottom-10 -left-10 glass-pearl p-4 rounded-2xl z-20"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                animate={{
+                  y: [0, 8, 0],
+                  rotate: [0, -5, 0],
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
               >
-                <img src="https://skillicons.dev/icons?i=firebase" className="w-10 h-10" />
+                <img src="https://skillicons.dev/icons?i=firebase" className="w-10 h-10" alt="Firebase" />
               </motion.div>
             </div>
           </motion.div>
