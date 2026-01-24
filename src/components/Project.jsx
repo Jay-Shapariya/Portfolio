@@ -7,7 +7,7 @@ const Project = () => {
         {
             title: "Eat at Home",
             description: "Food delivery app with scheduled ordering, real-time tracking, and personalized recommendations.",
-            image: "/image/eat.png",
+            image: "/image/eatathome.png",
             techStack: ["Flutter", "Firebase", "GetX"],
             links: [
                 { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.eatathomeuser&pcampaignid=web_share" },
@@ -15,23 +15,13 @@ const Project = () => {
             ],
             glowColor: "rgba(34, 197, 94, 0.3)",
         },
-        {
-            title: "Eat at Home Kitchen",
-            description: "Kitchen-side app for order management, workflow optimization, and real-time notifications.",
-            image: "/image/eat-host.png",
-            techStack: ["Flutter", "Firebase", "RestAPIs"],
-            links: [
-                { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.eatathomehost&pcampaignid=web_share" },
-                { label: "App Store", url: "https://apps.apple.com/in/app/eat-at-home-host/id6535681828" }
-            ],
-            glowColor: "rgba(249, 115, 22, 0.3)",
-        },
+
         {
             title: "Hudlr",
             description: "Fitness social platform for workouts, live classes, and community challenges.",
-            image: "/image/hudlr.jpeg",
+            image: "/image/hudlr.png",
             techStack: ["Kotlin", "Android", "Firebase"],
-            links: [{ label: "Live Demo", url: "#" }],
+            links: [{ label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.hudlrio" }],
             glowColor: "rgba(59, 130, 246, 0.3)",
         },
         {
@@ -43,6 +33,28 @@ const Project = () => {
             glowColor: "rgba(168, 85, 247, 0.3)",
         },
         {
+            title: "WeTrain AE",
+            description: "WeTrain is a modern fitness platform that connects users with certified personal trainers for personalized workouts and one-on-one training sessions. The app enables trainer discovery, custom workout plans, progress tracking, and secure in-app payments—all in one seamless experience.",
+            image: "/image/wetrain.png",
+            techStack: ["Flutter", "Firebase", "RestAPIs"],
+            links: [
+                { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.abtach.wetrain" },
+                { label: "App Store", url: "https://apps.apple.com/pk/app/wetrain-ae/id6467429964" }
+            ],
+            glowColor: "rgba(249, 115, 22, 0.3)",
+        },
+        {
+            title: "Eat at Home Kitchen",
+            description: "Kitchen-side app for order management, workflow optimization, and real-time notifications.",
+            image: "/image/eathost.png",
+            techStack: ["Flutter", "Firebase", "RestAPIs"],
+            links: [
+                { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.eatathomehost&pcampaignid=web_share" },
+                { label: "App Store", url: "https://apps.apple.com/in/app/eat-at-home-host/id6535681828" }
+            ],
+            glowColor: "rgba(249, 115, 22, 0.3)",
+        },
+        {
             title: "Infix - LMS App",
             description: "School management system for administrators, teachers, students, and parents.",
             image: "/image/infix.png",
@@ -51,58 +63,9 @@ const Project = () => {
             glowColor: "rgba(14, 165, 233, 0.3)",
         },
         {
-            title: "Inga Taxi App",
-            description: "Taxi booking app with real-time ride tracking and seamless user experience.",
-            image: "/image/inga.png",
-            techStack: ["Flutter", "Firebase"],
-            links: [{ label: "Live Demo", url: "https://drive.google.com/file/d/1I8sizOreSDrMGjii4wbXcr0E6plc_ill/view?usp=sharing" }],
-            glowColor: "rgba(234, 179, 8, 0.3)",
-        },
-        {
-            title: "Yoga App",
-            description: "Guided yoga workouts with progress tracking and customizable routines.",
-            image: "/image/yoga.jpeg",
-            techStack: ["Flutter", "SQLite", "Provider"],
-            links: [
-                { label: "Code", url: "https://github.com/Jay-Shapariya/yoga_app.git" },
-                { label: "Demo", url: "https://www.un-app.ai/" }
-            ],
-            glowColor: "rgba(20, 184, 166, 0.3)",
-        },
-        {
-            title: "E-Commerce App",
-            description: "Online shopping app with product browsing, cart, and Firebase authentication.",
-            image: "/image/ecommerce.png",
-            techStack: ["Flutter", "Firebase"],
-            links: [
-                { label: "Code", url: "https://github.com/Jay-Shapariya/Flutter_E-Commerce_APP.git" },
-                { label: "Screenshots", url: "https://drive.google.com/file/d/1Wp65FsYejnv4XAYvrfHyGd_x8jTN4P-Z/view?usp=sharing" }
-            ],
-            glowColor: "rgba(236, 72, 153, 0.3)",
-        },
-        {
-            title: "Seller Dashboard",
-            description: "Product management dashboard for e-commerce sellers with performance tracking.",
-            image: "/image/seller.jpeg",
-            techStack: ["Flutter", "Firebase", "GetX"],
-            links: [
-                { label: "Code", url: "https://github.com/Jay-Shapariya/Flutter_E-Mart_Seller_App.git" },
-                { label: "Screenshots", url: "https://drive.google.com/file/d/13VWX1ZKtRAPhkjGA_5_qwjwX-TMUyqqS/view?usp=sharing" }
-            ],
-            glowColor: "rgba(99, 102, 241, 0.3)",
-        },
-        {
-            title: "To Do App",
-            description: "Clean task management app built with Provider for efficient state management.",
-            image: "/image/to do.jpeg",
-            techStack: ["Flutter", "Provider"],
-            links: [{ label: "Code", url: "https://github.com/Jay-Shapariya/todo-app-using-provider.git" }],
-            glowColor: "rgba(6, 182, 212, 0.3)",
-        },
-        {
             title: "HealthoHolic",
             description: "Health and fitness app UI design focused on user experience and visual appeal.",
-            image: "/image/healthoholic figma.jpeg",
+            image: "/image/healthfigma.png",
             techStack: ["Figma"],
             links: [
                 { label: "Figma", url: "https://www.figma.com/file/PNuoPtI7JYX1rKamMCSOeZ/HCI_Project_HealthoHolic?type=design&node-id=0%3A1&mode=design&t=DAwOqoYZhwAF3o1L-1" },
@@ -113,7 +76,7 @@ const Project = () => {
         {
             title: "HealthoHolic Mobile",
             description: "Mobile implementation of health and fitness app with HCI principles.",
-            image: "/image/health.jpeg",
+            image: "/image/healthapp.png",
             techStack: ["Flutter", "Provider"],
             links: [
                 { label: "Code", url: "https://github.com/Jay-Shapariya/healthoholic-flutter-app.git" },

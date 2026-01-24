@@ -94,7 +94,7 @@ const About = () => {
                 <motion.button
                   type="button"
                   className="group relative px-8 py-4 rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] shadow-lg backdrop-blur-md overflow-hidden"
-                  onClick={() => window.open("/CV/Jay shapariya Resume.pdf")}
+                  onClick={() => window.open("/CV/Jay Shapariya Resume.pdf")}
                   whileHover={{
                     scale: 1.05,
                     backgroundColor: "rgba(255, 255, 255, 0.12)",
