@@ -47,8 +47,9 @@ const Navbar = () => {
     { id: 1, text: "Home", link: "#home" },
     { id: 2, text: "About", link: "#about" },
     { id: 3, text: "Experience", link: "#experience" },
-    { id: 4, text: "Projects", link: "#project" },
-    { id: 5, text: "Contact", link: "#contact" },
+    { id: 4, text: "Education", link: "#education" },
+    { id: 5, text: "Projects", link: "#project" },
+    { id: 6, text: "Contact", link: "#contact" },
   ];
 
   return (

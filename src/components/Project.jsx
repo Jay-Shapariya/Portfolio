@@ -106,7 +106,7 @@ const Project = () => {
                 </motion.div>
 
                 {/* Grid Layout - 2 Columns */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 md:gap-20">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
                     {projects.map((project, index) => (
                         <ProjectCard key={index} project={project} index={index} />
                     ))}

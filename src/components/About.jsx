@@ -12,7 +12,7 @@ const About = () => {
   return (
     <div
       id="about"
-      className="bg-transparent lg:py-[15rem] md:py-[8rem] sm:py-[8rem] py-[8rem] px-0 h-auto relative overflow-hidden"
+      className="bg-transparent lg:py-[10rem] md:py-[6rem] sm:py-[6rem] py-[6rem] px-0 h-auto relative overflow-hidden"
     >
       <div
         id="container"
@@ -24,7 +24,7 @@ const About = () => {
         >
           {/* Main Content Card - Widget Style */}
           <motion.div
-            className="glass-pearl p-8 md:p-12 lg:p-16 w-full max-w-4xl mx-auto relative overflow-hidden"
+            className="glass-pearl p-8 md:p-12 lg:p-16 w-full mx-auto relative overflow-hidden"
             ref={ref}
             initial={{ opacity: 0, y: 100, scale: 0.95 }}
             animate={
@@ -56,7 +56,7 @@ const About = () => {
                   animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  Flutter App Developer <br />
+                  Mobile App Developer <br />
                   <span className="text-text-secondary font-normal text-[2rem] md:text-3xl">based in Ahmedabad, Gujarat</span>
                 </motion.h4>
               </div>
@@ -69,19 +69,16 @@ const About = () => {
               />
 
               <motion.p
-                className="text-text-secondary text-[1.25rem] md:text-[1.5rem] font-medium leading-relaxed max-w-3xl"
+                className="text-text-secondary text-[1.25rem] md:text-[1.5rem] font-medium leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
               >
-                Hey, my name is Jay Shapariya, a dedicated Flutter app developer
+                Hey, my name is Jay Shapariya, a dedicated Mobile app developer
                 with a passion for crafting user-centric mobile experiences.
                 <br />
                 <br />
-                I thrive on continuous learning and innovation, always
-                seeking ways to push the boundaries of what's possible in the
-                mobile app world. Let's connect and explore how we can create
-                remarkable mobile solutions together.
+                Mobile App Developer with 2+ years of experience specializing in Flutter and Android (Kotlin/Java) development. Skilled in building and deploying cross-platform mobile applications with clean architecture, intuitive UI/UX, and optimized performance. Proficient in Flutter, Dart, Kotlin, Java, Firebase, and REST API integration, with expertise in state management (GetX, Provider,Bloc) and cloud backend services. Developed and delivered multiple production-level apps, including food delivery, fitness, LMS, and AI-powered telecom applications, ensuring scalability, security, and seamless user experience. Passionate about creating innovative, user-centric mobile solutions that bridge functionality with performance.
               </motion.p>
 
               <motion.div

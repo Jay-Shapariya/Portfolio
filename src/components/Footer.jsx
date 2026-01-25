@@ -12,9 +12,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="relative py-16 md:py-20 overflow-hidden">
-      {/* Glass background */}
-      <div className="absolute inset-0 glass-dark border-t border-white/10"></div>
+    <div className="relative py-16 md:py-20 overflow-hidden rounded-t-[32px]">
+      {/* Glass background with top-only rounded corners */}
+      <div
+        className="absolute inset-0 glass-dark border-t border-white/10 rounded-t-[32px]"
+        style={{ borderRadius: '32px 32px 0 0' }}
+      ></div>
 
       <div
         id="container"
@@ -45,6 +48,8 @@ const Footer = () => {
             {[
               { text: "Home", href: "#home" },
               { text: "About", href: "#about" },
+              { text: "Experience", href: "#experience" },
+              { text: "Education", href: "#education" },
               { text: "Projects", href: "#project" },
               { text: "Contact", href: "#contact" },
             ].map((link, i) => (
@@ -61,8 +66,32 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* Right side - social links */}
+          {/* Right side - social links + email button */}
           <div className="flex items-center gap-4">
+            {/* Email Button */}
+            <motion.a
+              href="mailto:shapariyajay@gmail.com"
+              className="glass-pearl p-3 rounded-xl hover:bg-white/10 transition-colors border border-white/5 text-text-primary"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={springConfigs.bouncy}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                <path d="M3 7l9 6l9 -6"></path>
+              </svg>
+            </motion.a>
+
             <motion.a
               href="https://www.linkedin.com/in/jay-shapariya-885379250/"
               target="_blank"
