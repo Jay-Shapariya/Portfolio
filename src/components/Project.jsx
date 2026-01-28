@@ -6,7 +6,7 @@ const Project = () => {
     const projects = [
         {
             title: "Eat at Home",
-            description: "Food delivery app with scheduled ordering, real-time tracking, and personalized recommendations.",
+            description: "Eat At Home is a versatile mobile application designed to bridge the gap between dining out and ordering in. Catering to all daily meal needs—from breakfast to dinner—the platform distinguishes itself with a hybrid service model that allows users to seamlessly book dine-in experiences or arrange delivery. A standout feature is the \"Enjoy Later\" scheduling option, enabling users to plan meals in advance alongside standard on-demand delivery. The app prioritizes convenience and user experience through secure online payments, real-time tracking, and an intuitive interface that ensures fresh, quality food is just a few taps away.",
             image: "/image/eatathome.png",
             techStack: ["Flutter", "Firebase", "GetX"],
             links: [
@@ -18,25 +18,25 @@ const Project = () => {
 
         {
             title: "Hudlr",
-            description: "Fitness social platform for workouts, live classes, and community challenges.",
+            description: "Hudlr is a comprehensive dual-sided marketplace designed to connect fitness enthusiasts with personal trainers globally. Acting as both a booking platform and an e-commerce solution, Hudlr allows individuals to discover niche coaches, book sessions, and join community activities, while empowering trainers to launch their own digital storefronts to sell plans and 1:1 coaching. By integrating social proof through reviews and activity matching, the app creates a trusted ecosystem where athletes can find expert guidance and trainers can scale their businesses beyond the gym.",
             image: "/image/hudlr.png",
-            techStack: ["Kotlin", "Android", "Firebase"],
+            techStack: ["Kotlin", "Android", "Firebase", "RestAPIs", "Send-Bird"],
             links: [{ label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.hudlrio" }],
             glowColor: "rgba(59, 130, 246, 0.3)",
         },
         {
             title: "UnApp",
-            description: "Auto-pickup calling solution with AI-powered responses and smart call management.",
+            description: "Un-app is an intelligent, privacy-first utility designed to reduce digital friction by acting as a subtle background agent. Operating on a \"Help, Hint, Handle\" philosophy, the application learns user behavior to filter noise—such as silently auto-handling unknown calls—and proactively assists with daily logistics. It features agentic capabilities that convert user intent into actions across platforms like YouTube and X, while \"Doer\" agents analyze historical data (like messages and traffic) to offer pragmatic suggestions. Built with a focus on digital sovereignty, Un-app automates routine tasks and manages attention without compromising user privacy.",
             image: "/image/unapp.png",
-            techStack: ["Java", "Android", "TelecomManager"],
-            links: [{ label: "Live Demo", url: "#" }],
+            techStack: ["Java", "Android", "TelecomManager","Gemini APIs"],
+            links: [{ label: "Play Store", url: "https://play.google.com/apps/testing/ai.unapp.communications" },{ label: "Join Testing Group", url: "https://groups.google.com/g/un-app-testing-group" }],
             glowColor: "rgba(168, 85, 247, 0.3)",
         },
         {
             title: "WeTrain AE",
-            description: "WeTrain is a modern fitness platform that connects users with certified personal trainers for personalized workouts and one-on-one training sessions. The app enables trainer discovery, custom workout plans, progress tracking, and secure in-app payments—all in one seamless experience.",
+            description: "WeTrain is a comprehensive fitness ecosystem designed to bridge the gap between health enthusiasts and certified professional trainers. The application moves beyond generic fitness advice by enabling users to book personalized one-on-one sessions and receive accredited, custom-tailored workout plans. Unique to WeTrain is its dual focus: it serves as both a coaching platform where trainers actively monitor client progress and a retail marketplace for fitness equipment, supplements, and activewear. With features like flexible scheduling, secure payment gateways, and data privacy protocols, WeTrain offers a holistic approach to personal wellness and gym management.",
             image: "/image/wetrain.png",
-            techStack: ["Flutter", "Firebase", "RestAPIs"],
+            techStack: ["Flutter", "Firebase", "RestAPIs", "GetX","Stripe", "Provider"],
             links: [
                 { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.abtach.wetrain" },
                 { label: "App Store", url: "https://apps.apple.com/pk/app/wetrain-ae/id6467429964" }
@@ -44,8 +44,8 @@ const Project = () => {
             glowColor: "rgba(249, 115, 22, 0.3)",
         },
         {
-            title: "Eat at Home Kitchen",
-            description: "Kitchen-side app for order management, workflow optimization, and real-time notifications.",
+            title: "Eat at Home Host",
+            description: "Eat At Home Host is the vendor-side application for the Eat At Home ecosystem, designed to empower home cooks to monetize their culinary skills. This platform serves as a comprehensive management tool where kitchens can register, curate diverse menus (Breakfast to Dinner), and control real-time availability with a simple open/close toggle. To ensure trust and quality, the app incorporates a rigorous admin approval workflow and a transparent commission-based payout system. By combining business management tools with community features like ratings and reviews, the app creates a sustainable marketplace for authentic, homemade food.",
             image: "/image/eathost.png",
             techStack: ["Flutter", "Firebase", "RestAPIs"],
             links: [
@@ -56,7 +56,7 @@ const Project = () => {
         },
         {
             title: "Infix - LMS App",
-            description: "School management system for administrators, teachers, students, and parents.",
+            description: "Infix is an innovative school management system designed to streamline educational operations, enhance communication between stakeholders, and provide a seamless experience for students, teachers, parents, and administrators. Built with Flutter for the front end and Firebase for the backend, Infix offers a user-friendly interface and secure authentication managed via Firebase. The project consists of four modules: Student, Teacher, Parent, and Admin, each tailored to meet the specific needs of its users. Key features include attendance tracking, assignment management, real-time notifications, and performance analytics, all aimed at fostering an efficient and collaborative learning environment.",
             image: "/image/infix.png",
             techStack: ["Flutter", "Firebase"],
             links: [{ label: "Live Demo", url: "https://drive.google.com/file/d/1I2UroLQ36dF2nqGd-iOtcCzzxKd_fGAK/view?usp=sharing" }],
@@ -64,7 +64,7 @@ const Project = () => {
         },
         {
             title: "HealthoHolic",
-            description: "Health and fitness app UI design focused on user experience and visual appeal.",
+            description: "HealthoHolic is a holistic fitness and wellness platform designed with a user-centric approach rooted in Human-Computer Interaction (HCI) principles. Born from extensive user research and persona generation, the prototype integrates physical fitness (Workout Scheduling, Activity Tracking, Yoga) with mental well-being (Meditation) and lifestyle management (Diet Suggestions, Nearby Centers). The interface prioritizes visual clarity and intuitive navigation, ensuring a seamless experience for users to track progress, connect socially, and locate fitness facilities without friction.",
             image: "/image/healthfigma.png",
             techStack: ["Figma"],
             links: [
@@ -75,7 +75,7 @@ const Project = () => {
         },
         {
             title: "HealthoHolic Mobile",
-            description: "Mobile implementation of health and fitness app with HCI principles.",
+            description: "HealthoHolic is a holistic fitness and wellness platform designed with a user-centric approach rooted in Human-Computer Interaction (HCI) principles. Born from extensive user research and persona generation, the prototype integrates physical fitness (Workout Scheduling, Activity Tracking, Yoga) with mental well-being (Meditation) and lifestyle management (Diet Suggestions, Nearby Centers). The interface prioritizes visual clarity and intuitive navigation, ensuring a seamless experience for users to track progress, connect socially, and locate fitness facilities without friction.",
             image: "/image/healthapp.png",
             techStack: ["Flutter", "Provider"],
             links: [
@@ -160,7 +160,7 @@ const ProjectCard = ({ project, index }) => {
                 </h3>
 
                 {/* Description */}
-                <p className="text-text-secondary text-sm leading-relaxed mb-4 line-clamp-2 flex-grow">
+                <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-grow">
                     {project.description}
                 </p>
 
