@@ -20,7 +20,7 @@ const WorkExperience = () => {
     {
       title: "Mobile App Developer",
       company: "Un-App Intelligence Private Limited",
-      dates: "April 2024 - July 2025",
+      dates: "April 2024 - March 2025",
       location: "Remote",
       responsibilities: [
         "Developed Un-App, an innovative Android application with automatic call pickup functionality using telecom services.",
