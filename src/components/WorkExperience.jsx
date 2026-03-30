@@ -6,7 +6,7 @@ const WorkExperience = () => {
 
   const experiences = [
     {
-      title: "Flutter Developer",
+      title: "Flutter App Developer",
       company: "Strats360 Technolabs LLP",
       dates: "March 2025 - Present",
       location: "Ahmedabad, Gujarat",
@@ -18,7 +18,7 @@ const WorkExperience = () => {
       skills: ["Flutter", "Kotlin", "iOS"],
     },
     {
-      title: "Mobile App Developer",
+      title: "Flutter App Developer",
       company: "Un-App Intelligence Private Limited",
       dates: "April 2024 - March 2025",
       location: "Remote",
@@ -27,7 +27,7 @@ const WorkExperience = () => {
         "Gained extensive expertise in Android native development and telecom services integration.",
         "Implemented TensorFlow Lite models for intelligent call handling and machine learning features.",
       ],
-      skills: ["Android", "Telecom Services", "TensorFlow Lite", "Java"],
+      skills: ["Flutter", "Android", "Telecom Services", "TensorFlow Lite", "Java"],
     },
     {
       title: "Intern Flutter Developer",
@@ -42,19 +42,19 @@ const WorkExperience = () => {
       ],
       skills: ["Flutter", "Firebase", "GetX"],
     },
-    {
-      title: "Intern Flutter Developer",
-      company: "Inexture Solution Limited",
-      dates: "May 2023 - July 2023",
-      location: "Remote",
-      responsibilities: [
-        "Developed feature-rich Flutter e-commerce application with Firebase backend integration",
-        "Enhanced Flutter development skills by building multiple foundational applications",
-        "Learned REST API implementation and integration for dynamic data handling",
-        "Gained experience in e-commerce functionalities including cart, payments, and user management",
-      ],
-      skills: ["Flutter", "Firebase", "REST API"],
-    },
+    // {
+    //   title: "Intern Flutter Developer",
+    //   company: "Inexture Solution Limited",
+    //   dates: "May 2023 - July 2023",
+    //   location: "Remote",
+    //   responsibilities: [
+    //     "Developed feature-rich Flutter e-commerce application with Firebase backend integration",
+    //     "Enhanced Flutter development skills by building multiple foundational applications",
+    //     "Learned REST API implementation and integration for dynamic data handling",
+    //     "Gained experience in e-commerce functionalities including cart, payments, and user management",
+    //   ],
+    //   skills: ["Flutter", "Firebase", "REST API"],
+    // },
   ];
 
   return (

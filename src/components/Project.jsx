@@ -28,15 +28,15 @@ const Project = () => {
             title: "UnApp",
             description: "Un-app is an intelligent, privacy-first utility designed to reduce digital friction by acting as a subtle background agent. Operating on a \"Help, Hint, Handle\" philosophy, the application learns user behavior to filter noise—such as silently auto-handling unknown calls—and proactively assists with daily logistics. It features agentic capabilities that convert user intent into actions across platforms like YouTube and X, while \"Doer\" agents analyze historical data (like messages and traffic) to offer pragmatic suggestions. Built with a focus on digital sovereignty, Un-app automates routine tasks and manages attention without compromising user privacy.",
             image: "/image/unapp.png",
-            techStack: ["Java", "Android", "TelecomManager","Gemini APIs"],
-            links: [{ label: "Play Store", url: "https://play.google.com/apps/testing/ai.unapp.communications" },{ label: "Join Testing Group", url: "https://groups.google.com/g/un-app-testing-group" }],
+            techStack: ["Flutter", "Java", "Android", "TelecomManager", "Gemini APIs"],
+            links: [{ label: "Play Store", url: "https://play.google.com/apps/testing/ai.unapp.communications" }, { label: "Join Testing Group", url: "https://groups.google.com/g/un-app-testing-group" }],
             glowColor: "rgba(168, 85, 247, 0.3)",
         },
         {
             title: "WeTrain AE",
             description: "WeTrain is a comprehensive fitness ecosystem designed to bridge the gap between health enthusiasts and certified professional trainers. The application moves beyond generic fitness advice by enabling users to book personalized one-on-one sessions and receive accredited, custom-tailored workout plans. Unique to WeTrain is its dual focus: it serves as both a coaching platform where trainers actively monitor client progress and a retail marketplace for fitness equipment, supplements, and activewear. With features like flexible scheduling, secure payment gateways, and data privacy protocols, WeTrain offers a holistic approach to personal wellness and gym management.",
             image: "/image/wetrain.png",
-            techStack: ["Flutter", "Firebase", "RestAPIs", "GetX","Stripe", "Provider"],
+            techStack: ["Flutter", "Firebase", "RestAPIs", "GetX", "Stripe", "Provider"],
             links: [
                 { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.abtach.wetrain" },
                 { label: "App Store", url: "https://apps.apple.com/pk/app/wetrain-ae/id6467429964" }
