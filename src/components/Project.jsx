@@ -1,9 +1,22 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { springConfigs } from "../utils/motionVariants";
+import useAnalytics from "../hooks/useAnalytics";
 
 const Project = () => {
     const projects = [
+        {
+            title: "360 Smart Business Card",
+            description: "360 Smart Business Card is a digital networking app that replaces traditional business cards with a fast, contactless solution using QR codes and NFC technology. It allows users to create and share fully customizable digital profiles—including social links, websites, and portfolios—in under two minutes, without requiring recipients to install the app. Designed for real-world networking scenarios, the app supports seamless sharing, contact management with notes, and scalable features for both individuals and businesses, delivering a modern and efficient professional networking experience.",
+            image: "/image/smartcard.png",
+            techStack: ["Flutter", "Firebase", "REST APIs", "NFC", "QR Code", "Geolocation APIs"],
+            links: [
+                { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.NFC.SmartBusinessCard" },
+                { label: "App Store", url: "https://apps.apple.com/in/app/ebusinesssmartcard/id1577193908" }
+            ],
+            glowColor: "rgba(59, 130, 246, 0.3)",
+        },
+
         {
             title: "Eat at Home",
             description: "Eat At Home is a versatile mobile application designed to bridge the gap between dining out and ordering in. Catering to all daily meal needs—from breakfast to dinner—the platform distinguishes itself with a hybrid service model that allows users to seamlessly book dine-in experiences or arrange delivery. A standout feature is the \"Enjoy Later\" scheduling option, enabling users to plan meals in advance alongside standard on-demand delivery. The app prioritizes convenience and user experience through secure online payments, real-time tracking, and an intuitive interface that ensures fresh, quality food is just a few taps away.",
@@ -118,6 +131,7 @@ const Project = () => {
 
 // Compact Project Card Component
 const ProjectCard = ({ project, index }) => {
+    const { trackEvent } = useAnalytics();
     return (
         <motion.div
             className="group relative rounded-3xl overflow-hidden"
@@ -195,6 +209,11 @@ const ProjectCard = ({ project, index }) => {
                                 href={link.url}
                                 target="_blank"
                                 rel="noreferrer"
+                                onClick={() => trackEvent('project_link_click', {
+                                    project: project.title,
+                                    link_label: link.label,
+                                    url: link.url
+                                })}
                                 className="group/btn flex-1 relative overflow-hidden px-3 py-2.5 rounded-xl text-sm font-bold transition-all border"
                                 style={{
                                     background: isPlayStore

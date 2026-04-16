@@ -3,8 +3,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { motionVariants, springConfigs } from "../utils/motionVariants";
 import { SiShopify } from "react-icons/si";
 import { BsFiletypeXml } from "react-icons/bs";
+import useAnalytics from "../hooks/useAnalytics";
 
 const Hero = () => {
+  const { trackEvent } = useAnalytics();
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
 
@@ -33,6 +35,55 @@ const Hero = () => {
     { name: "Git", icon: "git" },
   ];
 
+  // AI Tools Data
+  const aiTools = [
+    {
+      name: "Cursor",
+      logo: "https://www.cursor.com/assets/images/logo.svg",
+      color: "#F54E00",
+    },
+    {
+      name: "Antigravity",
+      logo: "https://antigravity.google/favicon.ico",
+      color: "#4285F4",
+    },
+    {
+      name: "Stitch",
+      logo: "https://app-companion-430619.appspot.com/static/stitch-word.svg",
+      color: "#6E56CF",
+    },
+    {
+      name: "Google AI Studio",
+      logo: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/gemini-color.svg",
+      color: "#4285F4",
+    },
+    {
+      name: "Claude",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Claude_AI_symbol.svg",
+      color: "#D97757",
+    },
+    {
+      name: "Lovable",
+      logo: "https://lovable.dev/favicon.svg",
+      color: "#F3702F",
+    },
+    {
+      name: "ChatGPT",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+      color: "#10A37F",
+    },
+    {
+      name: "SunoAI",
+      logo: "/image/suno-ai-logo.png",
+      color: "#E4542A",
+    },
+    {
+      name: "Open Claw",
+      logo: "https://raw.githubusercontent.com/openclaw/openclaw/main/assets/chrome-extension/icons/icon128.png",
+      color: "#E22A26",
+    },
+  ];
+
   // Component to render icon based on type
   const TechIcon = ({ tech }) => {
     if (tech.reactIcon) {
@@ -40,6 +91,18 @@ const Hero = () => {
         <div className="text-3xl flex items-center justify-center w-8 h-8">
           {tech.reactIcon}
         </div>
+      );
+    }
+    if (tech.logo) {
+      return (
+        <img
+          src={tech.logo}
+          className="h-8 w-8 object-contain"
+          alt={tech.name}
+          onError={(e) => {
+            e.target.src = "https://cdn-icons-png.flaticon.com/512/2103/2103633.png"; // Fallback AI icon
+          }}
+        />
       );
     }
     return (
@@ -181,7 +244,10 @@ const Hero = () => {
               >
                 <motion.a
                   href="#contact"
-                  onClick={(e) => smoothScroll(e, '#contact')}
+                  onClick={(e) => {
+                    smoothScroll(e, '#contact');
+                    trackEvent('hero_connect_click');
+                  }}
                   className="group relative px-6 py-3 bg-gradient-to-r from-ios-blue to-cyan-500 rounded-xl font-semibold text-white overflow-hidden"
                   whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 122, 255, 0.5)" }}
                   whileTap={{ scale: 0.95 }}
@@ -203,6 +269,7 @@ const Hero = () => {
                   href="/CV/Jay Shapariya Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('hero_resume_view')}
                   className="group relative px-6 py-3 glass-pearl border border-white/20 rounded-xl font-semibold text-text-primary overflow-hidden hover:bg-white/10"
                   whileHover={{ scale: 1.05, borderColor: "rgba(0, 122, 255, 0.5)" }}
                   whileTap={{ scale: 0.95 }}
@@ -220,6 +287,7 @@ const Hero = () => {
                   href="https://calendly.com/shapariyajay"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('hero_meet_click')}
                   className="group relative px-6 py-3 glass-pearl border border-white/20 rounded-xl font-semibold text-text-primary overflow-hidden hover:bg-white/10"
                   whileHover={{ scale: 1.05, borderColor: "rgba(0, 122, 255, 0.5)" }}
                   whileTap={{ scale: 0.95 }}
@@ -247,6 +315,7 @@ const Hero = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent('hero_social_click', { platform: social.icon.replace('brand-', '') })}
                     className="p-4 glass-pearl rounded-2xl hover:bg-white/10 transition-colors border border-white/5 text-text-primary"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
@@ -341,7 +410,40 @@ const Hero = () => {
                   ))}
                 </motion.div>
               </div>
+
+              {/* Third Row - AI & Automation - Left to Right */}
+              <div className="relative mt-4">
+                <motion.div
+                  className="flex gap-4"
+                  animate={{
+                    x: [0, -1000],
+                  }}
+                  transition={{
+                    x: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 25,
+                      ease: "linear",
+                    },
+                  }}
+                >
+                  {[...aiTools, ...aiTools, ...aiTools].map((tech, i) => (
+                    <motion.div
+                      key={i}
+                      className="glass-pearl px-4 py-3 rounded-xl flex items-center gap-3 border border-white/5 flex-shrink-0"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <TechIcon tech={tech} />
+                      <div className="flex flex-col items-start leading-none">
+                        <span className="text-text-primary font-medium whitespace-nowrap">{tech.name}</span>
+                        <span className="text-[8px] text-ios-blue font-semibold uppercase tracking-wider mt-0.5">AI tool</span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
             </motion.div>
+
           </motion.div>
 
           {/* Hero Image - contained shape */}
