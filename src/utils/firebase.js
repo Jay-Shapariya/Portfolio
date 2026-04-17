@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics, logEvent } from "firebase/analytics";
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -13,8 +12,19 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
+// Initialize Firebase safely
+let app = null;
+let analytics = null;
+
+if (firebaseConfig.apiKey) {
+  try {
+    app = initializeApp(firebaseConfig);
+    analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
+  } catch (error) {
+    console.error("Firebase initialization failed:", error);
+  }
+} else {
+  console.warn("Firebase API Key missing. Analytics will be disabled. Check your environment variables.");
+}
 
 export { app, analytics, logEvent };
