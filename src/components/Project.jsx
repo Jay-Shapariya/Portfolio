@@ -12,7 +12,7 @@ const Project = () => {
             techStack: ["Flutter", "Firebase", "REST APIs", "NFC", "QR Code", "Geolocation APIs"],
             links: [
                 { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.NFC.SmartBusinessCard" },
-                { label: "App Store", url: "https://apps.apple.com/in/app/ebusinesssmartcard/id1577193908" }
+                { label: "App Store", url: "https://apps.apple.com/us/app/smart-business-card-admin-app/id6761824551" }
             ],
             glowColor: "rgba(59, 130, 246, 0.3)",
         },
