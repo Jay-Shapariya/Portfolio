@@ -5,10 +5,20 @@ import { springConfigs, viewportOptions } from "../utils/motionVariants";
 const WorkExperience = () => {
 
   const experiences = [
+     {
+      title: "Mobile App Developer",
+      company: "Log Binary",
+      dates: "June 2026 - Present",
+      location: "Ahmedabad, Gujarat",
+      responsibilities: [
+        "Gained expertise in android & iOS development for React Native & Flutter, expanding cross-platform development skills.",
+      ],
+      skills: ["Flutter", "React Native", "Kotlin", "iOS"],
+    },
     {
       title: "Flutter App Developer",
       company: "Strats360 Technolabs LLP",
-      dates: "March 2025 - Present",
+      dates: "March 2025 - June 2026",
       location: "Ahmedabad, Gujarat",
       responsibilities: [
         "Developed a comprehensive food delivery application with both user and kitchen-side functionality.",
@@ -92,7 +102,7 @@ const WorkExperience = () => {
                   ...springConfigs.gentle,
                   delay: index * 0.15
                 }}
-                whileHover={{ scale: 1.01, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+                whileHover={{ scale: 1.01, backgroundColor: "rgba(255, 255, 255, 0.62)" }}
               >
                 {/* Selection Highlight Bar (Mobile List Style) */}
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-ios-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -108,7 +118,7 @@ const WorkExperience = () => {
                   </div>
                   <div className="flex flex-col lg:items-end gap-3">
                     {/* Date Badge - Futuristic Design */}
-                    <div className="flex items-center gap-2 bg-gradient-to-r from-ios-blue/10 to-cyan-500/10 px-4 py-2 rounded-xl border border-ios-blue/30">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-ios-blue/10 to-cyan-500/10 px-4 py-2 rounded-xl border border-ios-blue/20 backdrop-blur-sm">
                       <svg
                         className="w-4 h-4 text-ios-blue"
                         fill="currentColor"
@@ -125,7 +135,7 @@ const WorkExperience = () => {
                       </span>
                     </div>
                     {/* Location Badge - Futuristic Design */}
-                    <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-violet-500/10 px-4 py-2 rounded-xl border border-purple-500/30">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-violet-500/10 px-4 py-2 rounded-xl border border-purple-500/20 backdrop-blur-sm">
                       <svg
                         className="w-4 h-4 text-purple-400"
                         fill="currentColor"
@@ -171,7 +181,7 @@ const WorkExperience = () => {
                   {experience.skills.map((skill, idx) => (
                     <motion.span
                       key={idx}
-                      className="cursor-default bg-white/10 px-3 py-1.5 rounded-lg text-sm font-semibold border border-white/20 text-text-primary hover:text-ios-blue hover:border-ios-blue/50 transition-all duration-300"
+                      className="cursor-default bg-white/30 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm font-semibold border border-white/40 text-text-primary hover:text-ios-blue hover:border-ios-blue/50 hover:bg-white/50 transition-all duration-300"
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}

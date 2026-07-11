@@ -191,7 +191,7 @@ const Contact = () => {
                 },
               ].map((item) => (
                 <div key={item.id} className="flex items-center gap-6 group">
-                  <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 glass-pearl rounded-2xl flex items-center justify-center text-ios-blue group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-500 border border-white/5">
+                  <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 glass-pearl rounded-2xl flex items-center justify-center text-ios-blue group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-500 border border-white/40">
                     {item.icon}
                   </div>
                   <div className="flex flex-col gap-1">
@@ -233,7 +233,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-text-primary placeholder-text-muted focus:outline-none focus:border-ios-blue focus:ring-4 focus:ring-ios-blue/10 transition-all backdrop-blur-md"
+                      className="w-full px-6 py-4 bg-white/40 border border-white/45 rounded-2xl text-text-primary placeholder:text-slate-400 focus:outline-none focus:bg-white/60 focus:border-ios-blue focus:ring-4 focus:ring-ios-blue/15 transition-all backdrop-blur-md shadow-sm"
                       placeholder="Your Name"
                     />
                   </div>
@@ -250,13 +250,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-text-primary placeholder-text-muted focus:outline-none focus:border-ios-blue focus:ring-4 focus:ring-ios-blue/10 transition-all backdrop-blur-md"
+                      className="w-full px-6 py-4 bg-white/40 border border-white/45 rounded-2xl text-text-primary placeholder:text-slate-400 focus:outline-none focus:bg-white/60 focus:border-ios-blue focus:ring-4 focus:ring-ios-blue/15 transition-all backdrop-blur-md shadow-sm"
                       placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
 
-                {/* Subject Input */}
+                 {/* Subject Input */}
                 <div className="space-y-2">
                   <label htmlFor="subject" className="block text-text-secondary text-sm font-semibold ml-2">
                     Subject *
@@ -268,7 +268,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-text-primary placeholder-text-muted focus:outline-none focus:border-ios-blue focus:ring-4 focus:ring-ios-blue/10 transition-all backdrop-blur-md"
+                    className="w-full px-6 py-4 bg-white/40 border border-white/45 rounded-2xl text-text-primary placeholder:text-slate-400 focus:outline-none focus:bg-white/60 focus:border-ios-blue focus:ring-4 focus:ring-ios-blue/15 transition-all backdrop-blur-md shadow-sm"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -285,7 +285,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-text-primary placeholder-text-muted focus:outline-none focus:border-ios-blue focus:ring-4 focus:ring-ios-blue/10 transition-all backdrop-blur-md resize-none"
+                    className="w-full px-6 py-4 bg-white/40 border border-white/45 rounded-2xl text-text-primary placeholder:text-slate-400 focus:outline-none focus:bg-white/60 focus:border-ios-blue focus:ring-4 focus:ring-ios-blue/15 transition-all backdrop-blur-md resize-none shadow-sm"
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -294,7 +294,7 @@ const Contact = () => {
                 <motion.button
                   type="submit"
                   disabled={formStatus.loading}
-                  className="w-full md:w-auto px-10 py-5 bg-gradient-to-r from-ios-blue to-cyan-500 rounded-2xl font-bold text-white shadow-[0_10px_40px_rgba(0,122,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 relative overflow-hidden group"
+                  className="w-full md:w-auto px-10 py-5 bg-gradient-to-r from-ios-blue to-cyan-500 rounded-2xl font-bold text-white shadow-[0_8px_30px_rgba(0,122,255,0.2)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 relative overflow-hidden group"
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >

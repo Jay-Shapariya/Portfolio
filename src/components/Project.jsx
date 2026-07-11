@@ -155,7 +155,7 @@ const ProjectCard = ({ project, index }) => {
             <div className="relative z-10 p-6 flex flex-col h-full">
                 {/* Image */}
                 <motion.div
-                    className="relative w-full h-96 mb-4 rounded-2xl overflow-hidden border border-white/10"
+                    className="relative w-full h-96 mb-4 rounded-2xl overflow-hidden border border-white/40"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 >
@@ -183,13 +183,13 @@ const ProjectCard = ({ project, index }) => {
                     {project.techStack.slice(0, 3).map((tech, i) => (
                         <span
                             key={i}
-                            className="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-semibold text-text-primary border border-white/20"
+                            className="px-3 py-1.5 bg-white/30 backdrop-blur-sm rounded-lg text-xs font-semibold text-text-primary border border-white/40 hover:bg-white/50 transition-colors"
                         >
                             {tech}
                         </span>
                     ))}
                     {project.techStack.length > 3 && (
-                        <span className="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-semibold text-ios-blue border border-white/20">
+                        <span className="px-3 py-1.5 bg-white/30 backdrop-blur-sm rounded-lg text-xs font-semibold text-ios-blue border border-white/40 hover:bg-white/50 transition-colors">
                             +{project.techStack.length - 3}
                         </span>
                     )}
@@ -214,7 +214,7 @@ const ProjectCard = ({ project, index }) => {
                                     link_label: link.label,
                                     url: link.url
                                 })}
-                                className="group/btn flex-1 relative overflow-hidden px-3 py-2.5 rounded-xl text-sm font-bold transition-all border"
+                                className="group/btn flex-1 relative overflow-hidden px-3 py-2.5 rounded-xl text-sm font-bold transition-all border backdrop-blur-sm"
                                 style={{
                                     background: isPlayStore
                                         ? "linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(16, 185, 129, 0.1))"

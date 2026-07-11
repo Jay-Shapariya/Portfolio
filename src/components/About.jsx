@@ -34,9 +34,6 @@ const About = () => {
             }
             transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.2 }}
           >
-            {/* Ambient Glass Glow */}
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-ios-blue opacity-10 blur-[100px] rounded-full pointer-events-none -mr-20 -mt-20"></div>
-
             <div className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left gap-8">
 
               <div className="w-full">
@@ -94,8 +91,8 @@ const About = () => {
                   onClick={() => window.open("/CV/Jay Shapariya Resume.pdf")}
                   whileHover={{
                     scale: 1.05,
-                    backgroundColor: "rgba(255, 255, 255, 0.12)",
-                    boxShadow: "0 0 30px rgba(0, 122, 255, 0.3), 0 8px 32px rgba(0, 0, 0, 0.3)"
+                    backgroundColor: "rgba(255, 255, 255, 0.58)",
+                    boxShadow: "0 0 30px rgba(0, 122, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.08)"
                   }}
                   whileTap={{ scale: 0.92 }}
                   transition={springConfigs.bouncy}

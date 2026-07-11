@@ -208,17 +208,11 @@ const Hero = () => {
             style={{ y: textY }}
           >
             <motion.div
-              className="glass-dark p-8 md:p-12 rounded-[32px] border border-white/5 relative overflow-hidden w-full"
+              className="glass-dark p-8 md:p-12 rounded-[32px] border border-white/45 relative overflow-hidden w-full"
               variants={itemVariants}
               animate={{ scale: [1, 1.005, 1] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             >
-              {/* Decorative Blur blob inside card with pulse */}
-              <motion.div
-                className="absolute -top-20 -right-20 w-64 h-64 bg-ios-blue/20 rounded-full blur-[100px]"
-                animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              />
 
               <motion.h1
                 className="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary mb-6 leading-tight tracking-tight relative z-10"
@@ -270,7 +264,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('hero_resume_view')}
-                  className="group relative px-6 py-3 glass-pearl border border-white/20 rounded-xl font-semibold text-text-primary overflow-hidden hover:bg-white/10"
+                  className="group relative px-6 py-3 glass-pearl border border-white/40 rounded-xl font-semibold text-text-primary overflow-hidden hover:bg-white/50 hover:shadow-[0_8px_20px_rgba(255,255,255,0.4)]"
                   whileHover={{ scale: 1.05, borderColor: "rgba(0, 122, 255, 0.5)" }}
                   whileTap={{ scale: 0.95 }}
                   transition={springConfigs.bouncy}
@@ -288,7 +282,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('hero_meet_click')}
-                  className="group relative px-6 py-3 glass-pearl border border-white/20 rounded-xl font-semibold text-text-primary overflow-hidden hover:bg-white/10"
+                  className="group relative px-6 py-3 glass-pearl border border-white/40 rounded-xl font-semibold text-text-primary overflow-hidden hover:bg-white/50 hover:shadow-[0_8px_20px_rgba(255,255,255,0.4)]"
                   whileHover={{ scale: 1.05, borderColor: "rgba(0, 122, 255, 0.5)" }}
                   whileTap={{ scale: 0.95 }}
                   transition={springConfigs.bouncy}
@@ -316,7 +310,7 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackEvent('hero_social_click', { platform: social.icon.replace('brand-', '') })}
-                    className="p-4 glass-pearl rounded-2xl hover:bg-white/10 transition-colors border border-white/5 text-text-primary"
+                    className="p-4 glass-pearl rounded-2xl hover:bg-white/50 hover:shadow-[0_8px_20px_rgba(255,255,255,0.4)] transition-all border border-white/40 text-text-primary"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -372,7 +366,7 @@ const Hero = () => {
                   {[...techStack, ...techStack, ...techStack].map((tech, i) => (
                     <motion.div
                       key={i}
-                      className="glass-pearl px-4 py-3 rounded-xl flex items-center gap-3 border border-white/5 flex-shrink-0"
+                      className="glass-pearl px-4 py-3 rounded-xl flex items-center gap-3 border border-white/40 flex-shrink-0"
                       whileHover={{ scale: 1.1, animationPlayState: "paused" }}
                     >
                       <TechIcon tech={tech} />
@@ -401,7 +395,7 @@ const Hero = () => {
                   {[...techStack, ...techStack, ...techStack].reverse().map((tech, i) => (
                     <motion.div
                       key={i}
-                      className="glass-pearl px-4 py-3 rounded-xl flex items-center gap-3 border border-white/5 flex-shrink-0"
+                      className="glass-pearl px-4 py-3 rounded-xl flex items-center gap-3 border border-white/40 flex-shrink-0"
                       whileHover={{ scale: 1.1 }}
                     >
                       <TechIcon tech={tech} />
@@ -430,7 +424,7 @@ const Hero = () => {
                   {[...aiTools, ...aiTools, ...aiTools].map((tech, i) => (
                     <motion.div
                       key={i}
-                      className="glass-pearl px-4 py-3 rounded-xl flex items-center gap-3 border border-white/5 flex-shrink-0"
+                      className="glass-pearl px-4 py-3 rounded-xl flex items-center gap-3 border border-white/40 flex-shrink-0"
                       whileHover={{ scale: 1.1 }}
                     >
                       <TechIcon tech={tech} />
@@ -453,12 +447,6 @@ const Hero = () => {
             style={{ y: imageY, rotate: imageRotate }}
           >
             <div className="relative w-[160px] h-[160px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px]">
-              {/* Background Glow - enhanced */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-tr from-violet-500 via-purple-500 to-pink-500 rounded-full blur-[100px] opacity-30"
-                animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              />
 
               {/* Profile Image Container */}
               <div className="hero-img w-full h-full relative z-10 glass-border" style={{ animationDuration: "12s" }} />

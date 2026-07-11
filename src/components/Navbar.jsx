@@ -67,14 +67,14 @@ const Navbar = () => {
 
       {/* Desktop Navigation (Glass Segmented Control) */}
       <div className="hidden md:flex items-center">
-        <ul className="flex gap-2 items-center glass-dark p-2 rounded-full border border-white/5 shadow-2xl">
+        <ul className="flex gap-2 items-center glass-dark p-2 rounded-full border border-white/40 shadow-2xl">
           {navItems.map((item) => {
             const isActive = activeSection === item.link.substring(1);
             return (
               <li key={item.id} className="relative z-10">
                 <a
                   href={item.link}
-                  className={`block px-6 py-2 rounded-full text-base font-medium transition-colors duration-300 relative z-20 ${isActive ? "text-white" : "text-text-secondary hover:text-text-primary"
+                  className={`block px-6 py-2 rounded-full text-base font-medium transition-colors duration-300 relative z-20 ${isActive ? "text-slate-900" : "text-text-secondary hover:text-text-primary"
                     }`}
                   onClick={() => setActiveSection(item.link.substring(1))}
                 >
@@ -85,12 +85,12 @@ const Navbar = () => {
                 {isActive && (
                   <motion.div
                     layoutId="active-pill"
-                    className="absolute inset-0 rounded-full z-10 border border-white/20"
+                    className="absolute inset-0 rounded-full z-10 border border-white/40"
                     style={{
-                      backdropFilter: "blur(12px)",
-                      WebkitBackdropFilter: "blur(12px)",
-                      background: "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.08))",
-                      boxShadow: "0 0 20px rgba(0,122,255,0.2), 0 4px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3)"
+                      backdropFilter: "blur(8px)",
+                      WebkitBackdropFilter: "blur(8px)",
+                      background: "rgba(255, 255, 255, 0.75)",
+                      boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 3px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.4)"
                     }}
                     transition={{ type: "spring", stiffness: 260, damping: 25, mass: 0.8 }}
                   />
@@ -110,14 +110,14 @@ const Navbar = () => {
       <AnimatePresence>
         {nav && (
           <motion.div
-            className="fixed top-0 right-0 w-[80%] md:w-[60%] h-full bg-[#0B0D12] border-l border-white/10 z-[199] flex flex-col justify-center items-center shadow-2xl"
+            className="fixed top-0 right-0 w-[80%] md:w-[60%] h-full bg-white/40 border-l border-white/30 z-[199] flex flex-col justify-center items-center shadow-2xl backdrop-blur-3xl"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {/* Backdrop Blur Layer */}
-            <div className="absolute inset-0 backdrop-blur-3xl bg-black/50 z-[-1]" />
+            <div className="absolute inset-0 backdrop-blur-3xl bg-white/20 z-[-1]" />
 
             <ul className="flex flex-col gap-8 text-center">
               {navItems.map((item, index) => (
@@ -145,7 +145,7 @@ const Navbar = () => {
       <AnimatePresence>
         {nav && (
           <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[198] md:hidden"
+            className="fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-[198] md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -17,8 +17,8 @@ export default {
           400: 'rgba(255, 255, 255, 0.18)',
         },
         text: {
-          primary: '#E6EAF0',
-          secondary: '#9BA3AF',
+          primary: '#111827',
+          secondary: '#4B5563',
           muted: '#6B7280',
         }
       },

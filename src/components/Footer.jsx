@@ -15,7 +15,7 @@ const Footer = () => {
     <div className="relative py-16 md:py-20 overflow-hidden rounded-t-[32px]">
       {/* Glass background with top-only rounded corners */}
       <div
-        className="absolute inset-0 glass-dark border-t border-white/10 rounded-t-[32px]"
+        className="absolute inset-0 glass-dark border-t border-white/40 rounded-t-[32px]"
         style={{ borderRadius: '32px 32px 0 0' }}
       ></div>
 
@@ -71,7 +71,7 @@ const Footer = () => {
             {/* Email Button */}
             <motion.a
               href="mailto:shapariyajay@gmail.com"
-              className="glass-pearl p-3 rounded-xl hover:bg-white/10 transition-colors border border-white/5 text-text-primary"
+              className="glass-pearl p-3 rounded-xl hover:bg-white/50 hover:shadow-[0_8px_20px_rgba(255,255,255,0.4)] transition-all border border-white/40 text-text-primary"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               transition={springConfigs.bouncy}
@@ -96,7 +96,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/jay-shapariya-885379250/"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-pearl p-3 rounded-xl hover:bg-white/10 transition-colors border border-white/5 text-text-primary"
+              className="glass-pearl p-3 rounded-xl hover:bg-white/50 hover:shadow-[0_8px_20px_rgba(255,255,255,0.4)] transition-all border border-white/40 text-text-primary"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               transition={springConfigs.bouncy}
@@ -123,7 +123,7 @@ const Footer = () => {
               href="https://github.com/Jay-Shapariya"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-pearl p-3 rounded-xl hover:bg-white/10 transition-colors border border-white/5 text-text-primary"
+              className="glass-pearl p-3 rounded-xl hover:bg-white/50 hover:shadow-[0_8px_20px_rgba(255,255,255,0.4)] transition-all border border-white/40 text-text-primary"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
               transition={springConfigs.bouncy}
@@ -147,7 +147,7 @@ const Footer = () => {
 
         {/* Bottom divider and copyright */}
         <motion.div
-          className="mt-12 pt-8 border-t border-white/10"
+          className="mt-12 pt-8 border-t border-white/30"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}

@@ -39,7 +39,7 @@ const Education = () => {
                             whileInView={{ opacity: 1, y: 0, scale: 1 }}
                             viewport={{ once: true, margin: "-150px" }}
                             transition={springConfigs.gentle}
-                            whileHover={{ scale: 1.01, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+                            whileHover={{ scale: 1.01, backgroundColor: "rgba(255, 255, 255, 0.62)" }}
                         >
                             {/* Selection Highlight Bar */}
                             <div className="absolute left-0 top-0 bottom-0 w-1 bg-ios-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -48,7 +48,7 @@ const Education = () => {
                                 <div className="mb-4 lg:mb-0 flex items-start gap-4">
                                     {/* Graduation Cap Icon */}
                                     <motion.div
-                                        className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-ios-blue/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-ios-blue/30"
+                                        className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-ios-blue/20 to-cyan-500/20 rounded-xl flex items-center justify-center border border-ios-blue/20 backdrop-blur-sm"
                                         whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                                         transition={{ duration: 0.5 }}
                                     >
@@ -73,7 +73,7 @@ const Education = () => {
 
                                 <div className="flex flex-col lg:items-end gap-3">
                                     {/* Duration Badge */}
-                                    <div className="flex items-center gap-2 bg-gradient-to-r from-ios-blue/10 to-cyan-500/10 px-4 py-2 rounded-xl border border-ios-blue/30">
+                                    <div className="flex items-center gap-2 bg-gradient-to-r from-ios-blue/10 to-cyan-500/10 px-4 py-2 rounded-xl border border-ios-blue/20 backdrop-blur-sm">
                                         <svg
                                             className="w-4 h-4 text-ios-blue"
                                             fill="currentColor"
@@ -91,7 +91,7 @@ const Education = () => {
                                     </div>
 
                                     {/* Location Badge */}
-                                    <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-violet-500/10 px-4 py-2 rounded-xl border border-purple-500/30">
+                                    <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-violet-500/10 px-4 py-2 rounded-xl border border-purple-500/20 backdrop-blur-sm">
                                         <svg
                                             className="w-4 h-4 text-purple-400"
                                             fill="currentColor"
@@ -157,7 +157,7 @@ const Education = () => {
                                 {["Computer Science", "Mobile Development", "Software Engineering"].map((skill, idx) => (
                                     <motion.span
                                         key={idx}
-                                        className="cursor-default bg-white/10 px-3 py-1.5 rounded-lg text-sm font-semibold border border-white/20 text-text-primary hover:text-ios-blue hover:border-ios-blue/50 transition-all duration-300"
+                                        className="cursor-default bg-white/30 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm font-semibold border border-white/40 text-text-primary hover:text-ios-blue hover:border-ios-blue/50 hover:bg-white/50 transition-all duration-300"
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: true }}
