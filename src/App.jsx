@@ -5,6 +5,7 @@ import About from "./components/About";
 import WorkExperience from "./components/WorkExperience";
 import Education from "./components/Education";
 import Project from "./components/Project";
+import OpsBinaryProject from "./components/OpsBinaryProject";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import useAnalytics from "./hooks/useAnalytics";
@@ -18,6 +19,7 @@ const App = () => {
       <About />
       <WorkExperience />
       <Education />
+      <OpsBinaryProject />
       <Project />
       <Contact />
       <Footer />
@@ -33,7 +35,7 @@ const App = () => {
               numOctaves="3"
               result="noise"
             />
-            
+
             {/* Red channel displacement */}
             <feDisplacementMap
               in="SourceGraphic"
@@ -52,7 +54,7 @@ const App = () => {
                       0 0 0 1 0"
               result="red"
             />
-            
+
             {/* Green channel displacement */}
             <feDisplacementMap
               in="SourceGraphic"
@@ -71,7 +73,7 @@ const App = () => {
                       0 0 0 1 0"
               result="green"
             />
-            
+
             {/* Blue channel displacement */}
             <feDisplacementMap
               in="SourceGraphic"
@@ -90,7 +92,7 @@ const App = () => {
                       0 0 0 1 0"
               result="blue"
             />
-            
+
             {/* Blend together */}
             <feBlend in="red" in2="green" mode="screen" result="rg" />
             <feBlend in="rg" in2="blue" mode="screen" result="output" />
