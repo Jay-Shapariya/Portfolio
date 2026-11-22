@@ -4,36 +4,64 @@ import { motion } from "framer-motion";
 import { springConfigs } from "../utils/motionVariants";
 import useAnalytics from "../hooks/useAnalytics";
 
-const OPSBINARY_PROJECT = {
-    title: "OpsBinary",
-    description:
-        "OpsBinary is an all-in-one CRM and business operations platform that brings sales, customer and vendor management, invoicing, inventory, procurement, projects, and team workflows together. Real-time analytics, approval workflows, QR tools, role-based access, notifications, and an AI assistant for business questions and document insights help teams reduce manual work and manage operations with greater clarity.",
-    image: "/image/OpsBinary.png",
-    techStack: ["Flutter", "RazorPay", "AI ChatBot", "Riverpod", "RestAPI"],
-    links: [
-        { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.ops.binary" },
-        { label: "App Store", url: "https://apps.apple.com/us/app/opsbinary/id6815221724" },
-    ],
-    glowColor: "rgba(59, 130, 246, 0.3)",
-};
+const projects = [
+    {
+        title: "Suraksha Setu",
+        description:
+            "Suraksha Setu is a community safety app where people can request emergency support or volunteer as nearby saviors. SOS alerts share live location with nearby responders, who can accept requests and use navigation and private in-app chat to coordinate. It protects personal contact details and offers community support alongside—not as a replacement for—official emergency services.",
+        image: "/image/Suraksha Setu.png",
+        techStack: ["Flutter", "Bloc", "RestAPI"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.suraksha.newsetu" },
+            { label: "App Store", url: "https://apps.apple.com/in/app/suraksha-setu/id6757309764" },
+        ],
+        glowColor: "rgba(239, 68, 68, 0.3)",
+    },
+    {
+        title: "OpsBinary",
+        description:
+            "OpsBinary is an all-in-one CRM and business operations platform that brings sales, customer and vendor management, invoicing, inventory, procurement, projects, and team workflows together. Real-time analytics, approval workflows, QR tools, role-based access, notifications, and an AI assistant for business questions and document insights help teams reduce manual work and manage operations with greater clarity.",
+        image: "/image/OpsBinary.png",
+        techStack: ["Flutter", "RazorPay", "AI ChatBot", "Riverpod", "RestAPI"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.ops.binary" },
+            { label: "App Store", url: "https://apps.apple.com/us/app/opsbinary/id6815221724" },
+        ],
+        glowColor: "rgba(59, 130, 246, 0.3)",
+    },
+];
 
 const OpsBinaryProject = () => {
-    const [mountNode, setMountNode] = useState(null);
+    const [mountNodes, setMountNodes] = useState(null);
 
     useEffect(() => {
         const projectsGrid = document.querySelector("#project .grid");
         if (!projectsGrid) return undefined;
 
-        // Mount this card at the start of the existing Featured Projects grid.
-        const node = document.createElement("div");
-        node.className = "contents";
-        projectsGrid.insertBefore(node, projectsGrid.firstChild);
-        setMountNode(node);
+        const opsBinaryNode = document.createElement("div");
+        opsBinaryNode.className = "contents";
+        const surakshaSetuNode = document.createElement("div");
+        surakshaSetuNode.className = "contents";
 
-        return () => node.remove();
+        // Keep both cards in the existing Featured Projects grid, before its other projects.
+        projectsGrid.insertBefore(opsBinaryNode, projectsGrid.firstChild);
+        projectsGrid.insertBefore(surakshaSetuNode, opsBinaryNode);
+        setMountNodes({ surakshaSetuNode, opsBinaryNode });
+
+        return () => {
+            surakshaSetuNode.remove();
+            opsBinaryNode.remove();
+        };
     }, []);
 
-    return mountNode ? createPortal(<ProjectCard project={OPSBINARY_PROJECT} index={0} />, mountNode) : null;
+    if (!mountNodes) return null;
+
+    return (
+        <>
+            {createPortal(<ProjectCard project={projects[0]} index={0} />, mountNodes.surakshaSetuNode, "suraksha-setu")}
+            {createPortal(<ProjectCard project={projects[1]} index={1} />, mountNodes.opsBinaryNode, "opsbinary")}
+        </>
+    );
 };
 
 const ProjectCard = ({ project, index }) => {
@@ -58,7 +86,7 @@ const ProjectCard = ({ project, index }) => {
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 >
-                    <img src={project.image} alt={`${project.title} logo`} className="w-full h-full object-cover" />
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
 
@@ -66,11 +94,16 @@ const ProjectCard = ({ project, index }) => {
                 <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-grow">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
-                    {project.techStack.map((tech) => (
+                    {project.techStack.slice(0, 3).map((tech) => (
                         <span key={tech} className="px-3 py-1.5 bg-white/30 backdrop-blur-sm rounded-lg text-xs font-semibold text-text-primary border border-white/40 hover:bg-white/50 transition-colors">
                             {tech}
                         </span>
                     ))}
+                    {project.techStack.length > 3 && (
+                        <span className="px-3 py-1.5 bg-white/30 backdrop-blur-sm rounded-lg text-xs font-semibold text-ios-blue border border-white/40 hover:bg-white/50 transition-colors">
+                            +{project.techStack.length - 3}
+                        </span>
+                    )}
                 </div>
 
                 <div className="flex gap-2">
