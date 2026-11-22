@@ -18,6 +18,18 @@ const projects = [
         glowColor: "rgba(249, 115, 22, 0.3)",
     },
     {
+        title: "OpsBinary",
+        description:
+            "An all-in-one business management platform designed to streamline operations by bringing sales, customer relationships, inventory, invoicing, procurement, and project management into a centralized workspace. It offers real-time dashboards, lead management, client and vendor tracking, automated invoicing, inventory monitoring, purchase approvals, and project management tools. Additional capabilities include QR code integration, intelligent notifications, and an AI-powered assistant for document summarization and business insights. With role-based access control, activity tracking, and an intuitive interface, the platform helps businesses reduce manual work, improve operational visibility, enhance collaboration, and manage daily workflows more efficiently.",
+        image: "/image/OpsBinary.png",
+        techStack: ["Flutter", "RazorPay", "AI ChatBot", "Riverpod", "RestAPI"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.ops.binary" },
+            { label: "App Store", url: "https://apps.apple.com/us/app/opsbinary/id6815221724" },
+        ],
+        glowColor: "rgba(59, 130, 246, 0.3)",
+    },
+    {
         title: "HRMS",
         description:
             "A smart, centralized Human Resource Management System that simplifies employee management and everyday HR operations. Employees can access attendance, working hours, leave applications and balances, salary details, and downloadable payslips, while HR teams can manage profiles, announcements, milestones, interview schedules, and notifications. By improving communication and transparency, HRMS streamlines administration and gives teams convenient access to essential workplace information.",
@@ -40,18 +52,6 @@ const projects = [
             { label: "App Store", url: "https://apps.apple.com/in/app/suraksha-setu/id6757309764" },
         ],
         glowColor: "rgba(239, 68, 68, 0.3)",
-    },
-    {
-        title: "OpsBinary",
-        description:
-            "An all-in-one business management platform designed to streamline operations by bringing sales, customer relationships, inventory, invoicing, procurement, and project management into a centralized workspace. It offers real-time dashboards, lead management, client and vendor tracking, automated invoicing, inventory monitoring, purchase approvals, and project management tools. Additional capabilities include QR code integration, intelligent notifications, and an AI-powered assistant for document summarization and business insights. With role-based access control, activity tracking, and an intuitive interface, the platform helps businesses reduce manual work, improve operational visibility, enhance collaboration, and manage daily workflows more efficiently.",
-        image: "/image/OpsBinary.png",
-        techStack: ["Flutter", "RazorPay", "AI ChatBot", "Riverpod", "RestAPI"],
-        links: [
-            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.ops.binary" },
-            { label: "App Store", url: "https://apps.apple.com/us/app/opsbinary/id6815221724" },
-        ],
-        glowColor: "rgba(59, 130, 246, 0.3)",
     },
     {
         title: "Sampark Setu",
