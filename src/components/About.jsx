@@ -75,7 +75,7 @@ const About = () => {
                 with a passion for crafting user-centric mobile experiences.
                 <br />
                 <br />
-                Mobile App Developer with 2+ years of experience specializing in Flutter and Android (Kotlin/Java) development. Skilled in building and deploying cross-platform mobile applications with clean architecture, intuitive UI/UX, and optimized performance. Proficient in Flutter, Dart, Kotlin, Java, Firebase, and REST API integration, with expertise in state management (GetX, Provider,Bloc) and cloud backend services. Developed and delivered multiple production-level apps, including food delivery, fitness, LMS, and AI-powered telecom applications, ensuring scalability, security, and seamless user experience. Passionate about creating innovative, user-centric mobile solutions that bridge functionality with performance.
+                Mobile App Developer with 2+ years of experience specializing in Flutter, React-Native and Android (Kotlin/Java) development. Skilled in building and deploying cross-platform mobile applications with clean architecture, intuitive UI/UX, and optimized performance. Proficient in Flutter, Dart, React-Native, Kotlin, Java, Firebase, and REST API integration, with expertise in state management (Riverpod, GetX, Provider,Bloc) and cloud backend services. Developed and delivered multiple production-level apps, including food delivery, fitness, LMS, and AI-powered telecom applications, ensuring scalability, security, and seamless user experience. Passionate about creating innovative, user-centric mobile solutions that bridge functionality with performance.
               </motion.p>
 
               <motion.div
