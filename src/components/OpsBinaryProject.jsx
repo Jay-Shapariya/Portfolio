@@ -6,6 +6,18 @@ import useAnalytics from "../hooks/useAnalytics";
 
 const projects = [
     {
+        title: "HRMS",
+        description:
+            "A smart, centralized Human Resource Management System that simplifies employee management and everyday HR operations. Employees can access attendance, working hours, leave applications and balances, salary details, and downloadable payslips, while HR teams can manage profiles, announcements, milestones, interview schedules, and notifications. By improving communication and transparency, HRMS streamlines administration and gives teams convenient access to essential workplace information.",
+        image: "/image/HRMS.png",
+        techStack: ["React Native", "JavaScript", "Android", "iOS"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.hrmslb" },
+            { label: "App Store", url: "https://apps.apple.com/in/app/hrms-lb/id6759902063" },
+        ],
+        glowColor: "rgba(14, 165, 233, 0.3)",
+    },
+    {
         title: "Suraksha Setu",
         description:
             "Suraksha Setu is a community-driven safety application that connects people in emergency situations with nearby individuals willing to help. Users can switch between Victim Mode to request assistance and Savior Mode to help others. With one-tap SOS alerts, nearby volunteer notifications, real-time location sharing, and navigation support, the platform enables faster and more coordinated responses. It also provides private in-app chat, allowing victims and saviors to communicate without sharing personal contact information. By building a connected network of community support, Suraksha Setu makes local assistance more accessible while complementing, not replacing, official emergency services.",
@@ -38,27 +50,30 @@ const OpsBinaryProject = () => {
         const projectsGrid = document.querySelector("#project .grid");
         if (!projectsGrid) return undefined;
 
-        const opsBinaryNode = document.createElement("div");
-        opsBinaryNode.className = "contents";
-        const surakshaSetuNode = document.createElement("div");
-        surakshaSetuNode.className = "contents";
+        const nodes = projects.map((project) => {
+            const node = document.createElement("div");
+            node.className = "contents";
+            return node;
+        });
 
-        projectsGrid.insertBefore(opsBinaryNode, projectsGrid.firstChild);
-        projectsGrid.insertBefore(surakshaSetuNode, opsBinaryNode);
-        setMountNodes({ surakshaSetuNode, opsBinaryNode });
+        // Put these featured projects at the beginning of the existing projects grid.
+        nodes.forEach((node) => projectsGrid.insertBefore(node, projectsGrid.firstChild));
+        setMountNodes(nodes);
 
-        return () => {
-            surakshaSetuNode.remove();
-            opsBinaryNode.remove();
-        };
+        return () => nodes.forEach((node) => node.remove());
     }, []);
 
     if (!mountNodes) return null;
 
     return (
         <>
-            {createPortal(<ProjectCard project={projects[0]} index={0} />, mountNodes.surakshaSetuNode, "suraksha-setu")}
-            {createPortal(<ProjectCard project={projects[1]} index={1} />, mountNodes.opsBinaryNode, "opsbinary")}
+            {projects.map((project, index) =>
+                createPortal(
+                    <ProjectCard project={project} index={index} />,
+                    mountNodes[index],
+                    project.title
+                )
+            )}
         </>
     );
 };
