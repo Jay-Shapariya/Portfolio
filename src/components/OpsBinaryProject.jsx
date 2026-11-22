@@ -4,36 +4,64 @@ import { motion } from "framer-motion";
 import { springConfigs } from "../utils/motionVariants";
 import useAnalytics from "../hooks/useAnalytics";
 
-const OPSBINARY_PROJECT = {
-    title: "OpsBinary",
-    description:
-        "OpsBinary is an all-in-one CRM and business operations platform that brings sales, customer and vendor management, invoicing, inventory, procurement, projects, and team workflows together. Real-time analytics, approval workflows, QR tools, role-based access, notifications, and an AI assistant for business questions and document insights help teams reduce manual work and manage operations with greater clarity.",
-    image: "/image/OpsBinary.png",
-    techStack: ["CRM", "AI Assistant", "Analytics", "Inventory", "Project Management"],
-    links: [
-        { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.ops.binary" },
-        { label: "App Store", url: "https://apps.apple.com/us/app/opsbinary/id6815221724" },
-    ],
-    glowColor: "rgba(59, 130, 246, 0.3)",
-};
+const projects = [
+    {
+        title: "Suraksha Setu",
+        description:
+            "Suraksha Setu is a community safety app where people can request emergency support or volunteer as nearby saviors. SOS alerts share live location with nearby responders, who can accept requests and use navigation and private in-app chat to coordinate. It protects personal contact details and offers community support alongside—not as a replacement for—official emergency services.",
+        image: "/image/Suraksha Setu.png",
+        techStack: ["Flutter", "Bloc", "RestAPI"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.suraksha.newsetu" },
+            { label: "App Store", url: "https://apps.apple.com/in/app/suraksha-setu/id6757309764" },
+        ],
+        glowColor: "rgba(239, 68, 68, 0.3)",
+    },
+    {
+        title: "OpsBinary",
+        description:
+            "OpsBinary is an all-in-one CRM and business operations platform that brings sales, customer and vendor management, invoicing, inventory, procurement, projects, and team workflows together. Real-time analytics, approval workflows, QR tools, role-based access, notifications, and an AI assistant for business questions and document insights help teams reduce manual work and manage operations with greater clarity.",
+        image: "/image/OpsBinary.png",
+        techStack: ["Flutter", "RazorPay", "AI ChatBot", "Riverpod", "RestAPI"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.ops.binary" },
+            { label: "App Store", url: "https://apps.apple.com/us/app/opsbinary/id6815221724" },
+        ],
+        glowColor: "rgba(59, 130, 246, 0.3)",
+    },
+];
 
 const OpsBinaryProject = () => {
-    const [mountNode, setMountNode] = useState(null);
+    const [mountNodes, setMountNodes] = useState(null);
 
     useEffect(() => {
         const projectsGrid = document.querySelector("#project .grid");
         if (!projectsGrid) return undefined;
 
-        // Mount this card at the start of the existing Featured Projects grid.
-        const node = document.createElement("div");
-        node.className = "contents";
-        projectsGrid.insertBefore(node, projectsGrid.firstChild);
-        setMountNode(node);
+        const opsBinaryNode = document.createElement("div");
+        opsBinaryNode.className = "contents";
+        const surakshaSetuNode = document.createElement("div");
+        surakshaSetuNode.className = "contents";
 
-        return () => node.remove();
+        // Keep both cards in the existing Featured Projects grid, before its other projects.
+        projectsGrid.insertBefore(opsBinaryNode, projectsGrid.firstChild);
+        projectsGrid.insertBefore(surakshaSetuNode, opsBinaryNode);
+        setMountNodes({ surakshaSetuNode, opsBinaryNode });
+
+        return () => {
+            surakshaSetuNode.remove();
+            opsBinaryNode.remove();
+        };
     }, []);
 
-    return mountNode ? createPortal(<ProjectCard project={OPSBINARY_PROJECT} index={0} />, mountNode) : null;
+    if (!mountNodes) return null;
+
+    return (
+        <>
+            {createPortal(<ProjectCard project={projects[0]} index={0} />, mountNodes.surakshaSetuNode, "suraksha-setu")}
+            {createPortal(<ProjectCard project={projects[1]} index={1} />, mountNodes.opsBinaryNode, "opsbinary")}
+        </>
+    );
 };
 
 const ProjectCard = ({ project, index }) => {
@@ -54,11 +82,11 @@ const ProjectCard = ({ project, index }) => {
             />
             <div className="relative z-10 p-6 flex flex-col h-full">
                 <motion.div
-                    className="relative w-full h-96 mb-4 rounded-2xl overflow-hidden border border-white/40 bg-white/10"
+                    className="relative w-full h-96 mb-4 rounded-2xl overflow-hidden border border-white/40"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 >
-                    <img src={project.image} alt={`${project.title} logo`} className="w-full h-full object-contain p-8" />
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
 
@@ -110,7 +138,19 @@ const ProjectCard = ({ project, index }) => {
                                 whileTap={{ scale: 0.95 }}
                                 transition={springConfigs.bouncy}
                             >
-                                <span className="text-text-primary flex items-center justify-center">{link.label}</span>
+                                <span className="text-text-primary flex items-center justify-center gap-2">
+                                    {isPlayStore && (
+                                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M3.6 2.2a1.8 1.8 0 0 0-.6 1.3v17a1.8 1.8 0 0 0 .6 1.3L13.1 12 3.6 2.2Zm10.5 8.7 2.8-2.9L6.5 1.8l7.6 9.1Zm0 2.2-7.6 9.1 10.4-6.2-2.8-2.9Zm1.5-1.1 3.2 1.9c.9.5.9 1.3 0 1.8l-2.6 1.5-3.1-3.2 2.5-2Z" />
+                                        </svg>
+                                    )}
+                                    {isAppStore && (
+                                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M17.1 12.6c0-2.3 1.9-3.4 2-3.5a4.4 4.4 0 0 0-3.5-1.9c-1.5-.2-3 .9-3.8.9-.8 0-2-1-3.3-.9a4.8 4.8 0 0 0-4 2.5c-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.7 2.5 3 2.4 1.2-.1 1.7-.8 3.2-.8s1.9.8 3.2.8 2.1-1.2 2.9-2.4a10.7 10.7 0 0 0 1.3-2.7 4.2 4.2 0 0 1-2.2-4.2ZM14.6 5.6A4.3 4.3 0 0 0 15.6 2a4.4 4.4 0 0 0-3 1.5 4.1 4.1 0 0 0-1 3.4 3.7 3.7 0 0 0 3-1.3Z" />
+                                        </svg>
+                                    )}
+                                    {link.label}
+                                </span>
                             </motion.a>
                         );
                     })}
