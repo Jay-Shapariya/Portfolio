@@ -20,7 +20,7 @@ const Hero = () => {
   const techStack = [
     { name: "Flutter", icon: "flutter" },
     { name: "Dart", icon: "dart" },
-    { name: "React-Native", icon: "react-native" },
+    { name: "React-Native", icon: "react" },
     { name: "Swift", icon: "swift" },
     { name: "Kotlin", icon: "kotlin" },
     { name: "Java", icon: "java" },
