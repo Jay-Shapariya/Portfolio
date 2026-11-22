@@ -6,9 +6,33 @@ import useAnalytics from "../hooks/useAnalytics";
 
 const projects = [
     {
+        title: "EatBinary Go",
+        description:
+            "EatBinary Go is a restaurant management app that streamlines front-of-house service. Staff can manage tables, customize and search menu items (including voice search), send Kitchen Order Tickets directly to the kitchen, and track running orders, KOT history, bills, payments, and order history. QR-based pairing connects the app to the EatBinary POS over the local network, keeping restaurant data synchronized for faster service and smoother coordination.",
+        image: "/image/EatBinary Go.png",
+        techStack: ["Flutter", "Riverpod", "Local Network", "POS Integration"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.eatbinary.go" },
+            { label: "App Store", url: "https://apps.apple.com/in/app/eatbinary-go/id6827100554" },
+        ],
+        glowColor: "rgba(249, 115, 22, 0.3)",
+    },
+    {
+        title: "HRMS",
+        description:
+            "A smart, centralized Human Resource Management System that simplifies employee management and everyday HR operations. Employees can access attendance, working hours, leave applications and balances, salary details, and downloadable payslips, while HR teams can manage profiles, announcements, milestones, interview schedules, and notifications. By improving communication and transparency, HRMS streamlines administration and gives teams convenient access to essential workplace information.",
+        image: "/image/HRMS.png",
+        techStack: ["React Native", "JavaScript", "Android", "iOS"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.hrmslb" },
+            { label: "App Store", url: "https://apps.apple.com/in/app/hrms-lb/id6759902063" },
+        ],
+        glowColor: "rgba(14, 165, 233, 0.3)",
+    },
+    {
         title: "Suraksha Setu",
         description:
-            "Suraksha Setu is a community safety app where people can request emergency support or volunteer as nearby saviors. SOS alerts share live location with nearby responders, who can accept requests and use navigation and private in-app chat to coordinate. It protects personal contact details and offers community support alongside—not as a replacement for—official emergency services.",
+            "Suraksha Setu is a community-driven safety application that connects people in emergency situations with nearby individuals willing to help. Users can switch between Victim Mode to request assistance and Savior Mode to help others. With one-tap SOS alerts, nearby volunteer notifications, real-time location sharing, and navigation support, the platform enables faster and more coordinated responses. It also provides private in-app chat, allowing victims and saviors to communicate without sharing personal contact information. By building a connected network of community support, Suraksha Setu makes local assistance more accessible while complementing, not replacing, official emergency services.",
         image: "/image/Suraksha Setu.png",
         techStack: ["Flutter", "Bloc", "RestAPI"],
         links: [
@@ -20,7 +44,7 @@ const projects = [
     {
         title: "OpsBinary",
         description:
-            "OpsBinary is an all-in-one CRM and business operations platform that brings sales, customer and vendor management, invoicing, inventory, procurement, projects, and team workflows together. Real-time analytics, approval workflows, QR tools, role-based access, notifications, and an AI assistant for business questions and document insights help teams reduce manual work and manage operations with greater clarity.",
+            "An all-in-one business management platform designed to streamline operations by bringing sales, customer relationships, inventory, invoicing, procurement, and project management into a centralized workspace. It offers real-time dashboards, lead management, client and vendor tracking, automated invoicing, inventory monitoring, purchase approvals, and project management tools. Additional capabilities include QR code integration, intelligent notifications, and an AI-powered assistant for document summarization and business insights. With role-based access control, activity tracking, and an intuitive interface, the platform helps businesses reduce manual work, improve operational visibility, enhance collaboration, and manage daily workflows more efficiently.",
         image: "/image/OpsBinary.png",
         techStack: ["Flutter", "RazorPay", "AI ChatBot", "Riverpod", "RestAPI"],
         links: [
@@ -28,6 +52,17 @@ const projects = [
             { label: "App Store", url: "https://apps.apple.com/us/app/opsbinary/id6815221724" },
         ],
         glowColor: "rgba(59, 130, 246, 0.3)",
+    },
+    {
+        title: "Sampark Setu",
+        description:
+            "Sampark Setu is a digital community platform for the Vataliya Prajapati community, managed by Shri Vataliya Prajapati Gyanti Vikas Trust. It brings members and families together through a verified member directory, family profiles, announcements, events, death notices, condolence updates, and committee information. Restricted to approved members, it offers a centralized, user-friendly space to share important updates, stay connected, and strengthen community relationships.",
+        image: "/image/Sampark Setu.png",
+        techStack: ["React Native", "JavaScript", "Firebase", "Android"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.vikastrust.samparksetu" },
+        ],
+        glowColor: "rgba(168, 85, 247, 0.3)",
     },
 ];
 
@@ -38,28 +73,30 @@ const OpsBinaryProject = () => {
         const projectsGrid = document.querySelector("#project .grid");
         if (!projectsGrid) return undefined;
 
-        const opsBinaryNode = document.createElement("div");
-        opsBinaryNode.className = "contents";
-        const surakshaSetuNode = document.createElement("div");
-        surakshaSetuNode.className = "contents";
+        const nodes = projects.map(() => {
+            const node = document.createElement("div");
+            node.className = "contents";
+            return node;
+        });
 
-        // Keep both cards in the existing Featured Projects grid, before its other projects.
-        projectsGrid.insertBefore(opsBinaryNode, projectsGrid.firstChild);
-        projectsGrid.insertBefore(surakshaSetuNode, opsBinaryNode);
-        setMountNodes({ surakshaSetuNode, opsBinaryNode });
+        // Put these featured projects at the beginning of the existing projects grid.
+        [...nodes].reverse().forEach((node) => projectsGrid.insertBefore(node, projectsGrid.firstChild));
+        setMountNodes(nodes);
 
-        return () => {
-            surakshaSetuNode.remove();
-            opsBinaryNode.remove();
-        };
+        return () => nodes.forEach((node) => node.remove());
     }, []);
 
     if (!mountNodes) return null;
 
     return (
         <>
-            {createPortal(<ProjectCard project={projects[0]} index={0} />, mountNodes.surakshaSetuNode, "suraksha-setu")}
-            {createPortal(<ProjectCard project={projects[1]} index={1} />, mountNodes.opsBinaryNode, "opsbinary")}
+            {projects.map((project, index) =>
+                createPortal(
+                    <ProjectCard project={project} index={index} />,
+                    mountNodes[index],
+                    project.title
+                )
+            )}
         </>
     );
 };
