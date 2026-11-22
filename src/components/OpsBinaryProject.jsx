@@ -53,6 +53,17 @@ const projects = [
         ],
         glowColor: "rgba(59, 130, 246, 0.3)",
     },
+    {
+        title: "Sampark Setu",
+        description:
+            "Sampark Setu is a digital community platform for the Vataliya Prajapati community, managed by Shri Vataliya Prajapati Gyanti Vikas Trust. It brings members and families together through a verified member directory, family profiles, announcements, events, death notices, condolence updates, and committee information. Restricted to approved members, it offers a centralized, user-friendly space to share important updates, stay connected, and strengthen community relationships.",
+        image: "/image/Sampark Setu.png",
+        techStack: ["React Native", "JavaScript", "Firebase", "Android"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.vikastrust.samparksetu" },
+        ],
+        glowColor: "rgba(168, 85, 247, 0.3)",
+    },
 ];
 
 const OpsBinaryProject = () => {
