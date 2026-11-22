@@ -6,6 +6,18 @@ import useAnalytics from "../hooks/useAnalytics";
 
 const projects = [
     {
+        title: "EatBinary Go",
+        description:
+            "EatBinary Go is a restaurant management app that streamlines front-of-house service. Staff can manage tables, customize and search menu items (including voice search), send Kitchen Order Tickets directly to the kitchen, and track running orders, KOT history, bills, payments, and order history. QR-based pairing connects the app to the EatBinary POS over the local network, keeping restaurant data synchronized for faster service and smoother coordination.",
+        image: "/image/EatBinary Go.png",
+        techStack: ["Flutter", "Riverpod", "Local Network", "POS Integration"],
+        links: [
+            { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.eatbinary.go" },
+            { label: "App Store", url: "https://apps.apple.com/in/app/eatbinary-go/id6827100554" },
+        ],
+        glowColor: "rgba(249, 115, 22, 0.3)",
+    },
+    {
         title: "HRMS",
         description:
             "A smart, centralized Human Resource Management System that simplifies employee management and everyday HR operations. Employees can access attendance, working hours, leave applications and balances, salary details, and downloadable payslips, while HR teams can manage profiles, announcements, milestones, interview schedules, and notifications. By improving communication and transparency, HRMS streamlines administration and gives teams convenient access to essential workplace information.",
@@ -50,14 +62,14 @@ const OpsBinaryProject = () => {
         const projectsGrid = document.querySelector("#project .grid");
         if (!projectsGrid) return undefined;
 
-        const nodes = projects.map((project) => {
+        const nodes = projects.map(() => {
             const node = document.createElement("div");
             node.className = "contents";
             return node;
         });
 
         // Put these featured projects at the beginning of the existing projects grid.
-        nodes.forEach((node) => projectsGrid.insertBefore(node, projectsGrid.firstChild));
+        [...nodes].reverse().forEach((node) => projectsGrid.insertBefore(node, projectsGrid.firstChild));
         setMountNodes(nodes);
 
         return () => nodes.forEach((node) => node.remove());
