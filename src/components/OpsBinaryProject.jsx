@@ -8,7 +8,7 @@ const projects = [
     {
         title: "Suraksha Setu",
         description:
-            "Suraksha Setu is a community safety app where people can request emergency support or volunteer as nearby saviors. SOS alerts share live location with nearby responders, who can accept requests and use navigation and private in-app chat to coordinate. It protects personal contact details and offers community support alongside—not as a replacement for—official emergency services.",
+            "Suraksha Setu is a community-driven safety application that connects people in emergency situations with nearby individuals willing to help. Users can switch between Victim Mode to request assistance and Savior Mode to help others. With one-tap SOS alerts, nearby volunteer notifications, real-time location sharing, and navigation support, the platform enables faster and more coordinated responses. It also provides private in-app chat, allowing victims and saviors to communicate without sharing personal contact information. By building a connected network of community support, Suraksha Setu makes local assistance more accessible while complementing, not replacing, official emergency services.",
         image: "/image/Suraksha Setu.png",
         techStack: ["Flutter", "Bloc", "RestAPI"],
         links: [
@@ -20,7 +20,7 @@ const projects = [
     {
         title: "OpsBinary",
         description:
-            "OpsBinary is an all-in-one CRM and business operations platform that brings sales, customer and vendor management, invoicing, inventory, procurement, projects, and team workflows together. Real-time analytics, approval workflows, QR tools, role-based access, notifications, and an AI assistant for business questions and document insights help teams reduce manual work and manage operations with greater clarity.",
+            "An all-in-one business management platform designed to streamline operations by bringing sales, customer relationships, inventory, invoicing, procurement, and project management into a centralized workspace. It offers real-time dashboards, lead management, client and vendor tracking, automated invoicing, inventory monitoring, purchase approvals, and project management tools. Additional capabilities include QR code integration, intelligent notifications, and an AI-powered assistant for document summarization and business insights. With role-based access control, activity tracking, and an intuitive interface, the platform helps businesses reduce manual work, improve operational visibility, enhance collaboration, and manage daily workflows more efficiently.",
         image: "/image/OpsBinary.png",
         techStack: ["Flutter", "RazorPay", "AI ChatBot", "Riverpod", "RestAPI"],
         links: [
@@ -43,7 +43,6 @@ const OpsBinaryProject = () => {
         const surakshaSetuNode = document.createElement("div");
         surakshaSetuNode.className = "contents";
 
-        // Keep both cards in the existing Featured Projects grid, before its other projects.
         projectsGrid.insertBefore(opsBinaryNode, projectsGrid.firstChild);
         projectsGrid.insertBefore(surakshaSetuNode, opsBinaryNode);
         setMountNodes({ surakshaSetuNode, opsBinaryNode });
